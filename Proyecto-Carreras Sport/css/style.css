@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--color-blanco);
-    background-image: url(./bgc-index.jpg);
+    background-image: url(../images/bgc-index.jpg);
     line-height: 1.6;
     min-height: 100vh; /*100% del alto de la pantalla visible del navegador*/
     overflow-x: hidden;
