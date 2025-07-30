@@ -1,120 +1,228 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda - Carreras Sport</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Carreras Sport</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <section class="header-container">
-      <a href="#" class="logo">
-        <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
-      </a>
+    <header class="header">
+        <section class="header-container">
+            <a href="index.html" class="logo">
+                <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+            </a>
+            
+            <nav>
+                <ul class="nav-desktop">
+                    <li><a href="./index.html"> Inicio</a></li>
+                    <li><a href="./noticias.html"> Noticias</a></li>
+                    <li><a href="#"> Calendario</a></li>
+                    <li><a href="./apuestas.html"> Apuestas</a></li>
+                    <li><a href="./tienda.html" class="active"> Tienda</a></li>
+                    <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+                    <li id="logout-item" style="display: none;">
+                        <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+            </nav>
+        </section>
         
-      <nav>
-        <ul class="nav-desktop">
-          <li><a href="./index.html"> Inicio</a></li>
-          <li><a href="./noticias.html"> Noticias</a></li>
-          <li><a href="./calendario.html"> Calendario</a></li>
-          <li><a href="./apuestas.html"> Apuestas</a></li>
-          <li><a href="./tienda.html" class="active"> Tienda</a></li>
-          <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
-          <li id="logout-item" style="display: none;">
-            <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
-          </li>
-        </ul>
-          
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
-      </nav>
-    </section>
-      
-    <section class="nav-mobile" id="mobileMenu">
-      <ul>
-        <li><a href="./index.html" class="active"> Inicio</a></li>
-        <li><a href="./noticias.html"> Noticias</a></li>
-        <li><a href="./calendario.html"> Calendario</a></li>
-        <li><a href="./apuestas.html"> Apuestas</a></li>
-        <li><a href="./tienda.html"> Tienda</a></li>
-        <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
-        <li id="logout-item" style="display: none;">
-          <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
-        </li>
-      </ul>
-    </section>
-  </header>
+        <section class="nav-mobile" id="mobileMenu">
+            <ul>
+                <li><a href="./index.html"> Inicio</a></li>
+                <li><a href="./noticias.html"> Noticias</a></li>
+                <li><a href="#"> Calendario</a></li>
+                <li><a href="./apuestas.html"> Apuestas</a></li>
+                <li><a href="./tienda.html" class="active"> Tienda</a></li>
+                <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+                <li id="logout-item" style="display: none;">
+                    <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                </li>
+            </ul>
+        </section>
+    </header>
 
-    <!-- Exclusive content modal -->
-  <main class="main-content">
-    <section id="exclusivoModal" class="modal">
-      <article class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Contenido Exclusivo</h2>
-        <p>Regístrate o inicia sesión para acceder a la tienda y contenido premium de Fórmula 1 y MotoGP.</p>
-        <a href="cuenta.html" class="modal-btn">Regístrate ahora</a>
-      </article>
-    </section>
-  </main>
+    <main class="main-content">
+        <section id="exclusivoModal" class="modal">
+            <article class="modal-content">
+                <span class="close">×</span>
+                <h2>Contenido Exclusivo</h2>
+                <p>Regístrate o inicia sesión para acceder a la tienda y contenido premium de Fórmula 1 y MotoGP.</p>
+                <a href="cuenta.html" class="modal-btn">Regístrate ahora</a>
+            </article>
+        </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <section class="footer-container">
-      <section class="footer-content">
-        <article class="footer-section">
-          <h3>Carreras Sport</h3>
-          <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
-          <article class="social-links">
-            <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
-          </article>
-        </article>
-              
-        <article class="footer-section">
-          <h3>Navegación</h3>
-          <ul>
-            <li><a href="./index.html">Inicio</a></li>
-            <li><a href="./noticias.html">Noticias</a></li>
-            <li><a href="./calendario.html">Calendario</a></li>
-            <li><a href="./apuestas.html">Apuestas</a></li>
-            <li><a href="./tienda.html">Tienda</a></li>
-            <li><a href="./cuenta.html">Mi cuenta</a></li>
-          </ul>
-        </article>
-              
-        <article class="footer-section">
-          <h3>Servicios</h3>
-          <ul>
-            <li><a href="./cuenta.html">Contenido exclusivo</a></li>
-            <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
-            <li><a href="./tienda.html">Tienda Oficial</a></li>
-            <li><a href="#">Newsletter</a></li>
-            <li><a href="/about.html">App Móvil</a></li>
-          </ul>
-        </article>
-              
-        <article class="footer-section">
-          <h3>Soporte</h3>
-          <ul>
-            <li><a href="#">Centro de Ayuda</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Términos y Condiciones</a></li>
-            <li><a href="#">Política de Privacidad</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
-        </article>
-      </section>
-      
-      <section class="footer-bottom">
-        <p>&copy; 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
-      </section>
-    </section>
-  </footer>
+        <section class="container product-page-container">
+            <h1 class="section-title">Nuestros Productos</h1>
+            <p class="section-subtitle">Descubre la colección oficial de F1 y MotoGP.</p>
 
-  <script src="js/main.js"></script>
+            <section class="product-filters">
+                <select class="filter-select">
+                    <option value="all">Todas las categorías</option>
+                    <option value="f1">Fórmula 1</option>
+                    <option value="motogp">MotoGP</option>
+                    <option value="apparel">Indumentaria</option>
+                    <option value="accessories">Accesorios</option>
+                </select>
+                <input type="text" class="search-input" placeholder="Buscar productos...">
+            </section>
+
+            <section class="product-grid">
+                <article class="product-card">
+                    <img src="" alt="Gorra Red Bull Racing F1" class="product-image">
+                    <section class="product-info"> <h3 class="product-title">Gorra Red Bull Racing F1</h3>
+                        <p class="product-description">La gorra oficial del equipo Red Bull Racing de Fórmula 1.</p>
+                        <p class="product-price">$35.00</p>
+                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                    </section>
+                </article>
+
+                <article class="product-card">
+                    <img src="./images/product2.jpg" alt="Camiseta Valentino Rossi MotoGP" class="product-image">
+                    <section class="product-info"> <h3 class="product-title">Camiseta Valentino Rossi MotoGP</h3>
+                        <p class="product-description">Camiseta réplica de Valentino Rossi, 'The Doctor'.</p>
+                        <p class="product-price">$50.00</p>
+                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                    </section>
+                </article>
+
+                <article class="product-card">
+                    <img src="./images/product3.jpg" alt="Miniatura Coche F1 Lewis Hamilton" class="product-image">
+                    <section class="product-info"> <h3 class="product-title">Miniatura Mercedes F1 W13 Hamilton</h3>
+                        <p class="product-description">Coche a escala 1:43 del Mercedes-AMG F1 W13 de Lewis Hamilton.</p>
+                        <p class="product-price">$80.00</p>
+                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                    </section>
+                </article>
+
+                <article class="product-card">
+                    <img src="./images/product4.jpg" alt="Sudadera Ferrari F1 Team" class="product-image">
+                    <section class="product-info"> <h3 class="product-title">Sudadera Ferrari F1 Team</h3>
+                        <p class="product-description">Sudadera oficial del equipo Scuderia Ferrari de Fórmula 1.</p>
+                        <p class="product-price">$95.00</p>
+                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                    </section>
+                </article>
+
+                <article class="product-card">
+                    <img src="./images/product5.jpg" alt="Llavero Casco F1 Max Verstappen" class="product-image">
+                    <section class="product-info"> <h3 class="product-title">Llavero Casco Max Verstappen F1</h3>
+                        <p class="product-description">Llavero con réplica del casco de Max Verstappen.</p>
+                        <p class="product-price">$15.00</p>
+                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                    </section>
+                </article>
+
+                <article class="product-card">
+                    <img src="./images/product6.jpg" alt="Póster Autografiado Marc Márquez" class="product-image">
+                    <section class="product-info"> <h3 class="product-title">Póster Autografiado Marc Márquez</h3>
+                        <p class="product-description">Póster exclusivo con autógrafo impreso de Marc Márquez.</p>
+                        <p class="product-price">$25.00</p>
+                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                    </section>
+                </article>
+
+                </section>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <section class="footer-container">
+            <section class="footer-content">
+                <article class="footer-section">
+                    <h3>Carreras Sport</h3>
+                    <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+                    <section class="social-links"> <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </section>
+                </article>
+                
+                <article class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./noticias.html">Noticias</a></li>
+                        <li><a href="#">Calendario</a></li>
+                        <li><a href="./apuestas.html">Apuestas</a></li>
+                        <li><a href="./tienda.html">Tienda</a></li>
+                        <li><a href="./cuenta.html">Mi cuenta</a></li>
+                    </ul>
+                </article>
+                
+                <article class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+                        <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+                        <li><a href="./tienda.html">Tienda Oficial</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="/about.html">App Móvil</a></li>
+                    </ul>
+                </article>
+                
+                <article class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </article>
+            </section>
+            
+            <section class="footer-bottom">
+                <p>© 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+            </section>
+        </section>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Script para activar el enlace "Tienda" en la navegación
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-desktop a, .nav-mobile a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath || (link.getAttribute('href') === './tienda.html' && currentPath.includes('tienda.html'))) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Lógica para el modal de exclusividad (manteniendo tu implementación)
+            const exclusivoModal = document.getElementById('exclusivoModal');
+            const closeBtn = document.querySelector('.modal .close');
+            
+            // Función para mostrar el modal (puedes llamar a esta función cuando lo necesites, por ejemplo, al cargar la página)
+            function showExclusiveModal() {
+                exclusivoModal.style.display = 'block';
+            }
+
+            // Ocultar el modal al hacer clic en la "x"
+            if (closeBtn) {
+                closeBtn.onclick = function() {
+                    exclusivoModal.style.display = 'none';
+                }
+            }
+
+            // Ocultar el modal al hacer clic fuera de él
+            window.onclick = function(event) {
+                if (event.target == exclusivoModal) {
+                    exclusivoModal.style.display = 'none';
+                }
+            }
+
+            // Ejemplo: Mostrar el modal al cargar la página (puedes comentar o modificar esto según tu lógica de usuario logueado)
+            // showExclusiveModal(); // Descomenta esta línea si quieres que el modal aparezca al cargar la tienda.
+        });
+    </script>
 </body>
 </html>
