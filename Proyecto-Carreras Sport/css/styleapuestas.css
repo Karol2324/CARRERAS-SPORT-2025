@@ -1,0 +1,325 @@
+/* Importar tipografías de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    /* Definición de variables CSS para los colores */
+    --color-rojo-ferrari: #CC0000;
+    --color-gris-oscuro: #333;
+    --color-gris-claro: #505050;
+    --color-negro: #000;
+    --color-blanco: #FFF;
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-blanco);
+    background-image: url(../images/bgc-index.jpg);
+    line-height: 1.6;
+    min-height: 100vh; /*100% del alto de la pantalla visible del navegador*/
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* oscurece el fondo */
+    z-index: -1;
+}
+
+/* Header */
+.header {
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-icon {
+    height: 70px;
+    width: auto;
+}
+
+/* Estilo para titulos y parrafos */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-rojo-ferrari);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--color-blanco);
+}
+
+/* --- Estilos para la página de inicio --- */
+/* Navigation */
+.nav-desktop {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-desktop li {
+    position: relative;
+}
+
+.nav-desktop a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: color 0.3s ease; /* Suave transición al pasar el ratón */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-desktop a:hover {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.nav-desktop a.active {
+    background-color: var(--color-gris-oscuro);
+    font-weight: bold;
+}
+
+.nav-desktop a.active:hover {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: none;
+    color: var(--color-blanco);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-rojo-ferrari);
+}
+
+/* Mobile menu */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-gris-oscuro);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-mobile ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.nav-mobile a {
+    display: block;
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile a:hover {
+    background-color: var(--color-rojo-ferrari);
+    padding-left: 3rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 650px;
+    margin: 120px auto 40px; /* margen superior más grande */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-rojo-ferrari);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: var(--color-rojo-ferrari);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8a0202;
+}
+
+#estado-apuesta {
+    margin-top: 30px;
+    background-color: #e6ffe6;
+    padding: 20px;
+    border: 1px solid #00b300;
+    border-radius: 10px;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+    color: white;
+    padding: 3rem 2rem 1rem;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #ccc;
+    text-align: center;
+
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+    text-align: center;
+}
+
+.footer-section a:hover {
+    color: #8a0202;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-gris-oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0;
+    font-size: 0; /* evita espacios invisibles dentro */
+}
+
+.social-link i {
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
