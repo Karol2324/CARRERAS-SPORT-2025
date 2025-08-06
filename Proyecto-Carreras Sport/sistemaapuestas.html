@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Resultados - Apuestas de Carreras</title>
+    <link rel="stylesheet" href="apuestas.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏁 Predicción de Apuestas - Carreras</h1>
+
+        <!-- Formulario de predicción de apuestas -->
+        <form class="formulario" onsubmit="return mostrarConfirmacion(event)">
+            <label for="nombre">Nombre del Aficionado:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="campeon">¿Quién será el campeón?</label>
+            <select id="campeon" name="campeon" required>
+                <option value="">-- Selecciona un piloto --</option>
+                <option value="piloto1">Piloto 1</option>
+                <option value="piloto2">Piloto 2</option>
+                <option value="piloto3">Piloto 3</option>
+            </select>
+
+            <label for="podio">Podio (Top 3 en orden):</label>
+            <input type="text" id="podio" name="podio" placeholder="Ej: Piloto2, Piloto1, Piloto3" required>
+
+            <label for="tiempo">Tiempo del ganador (minutos):</label>
+            <input type="number" id="tiempo" name="tiempo" step="0.01" required>
+
+            <label for="monto">Monto a Apostar:</label>
+            <select id="monto" name="monto" required>
+                <option value="">-- Selecciona un monto --</option>
+                <option value="5">$5</option>
+                <option value="10">$10</option>
+                <option value="20">$20</option>
+                <option value="50">$50</option>
+            </select>
+
+            <button type="submit">Confirmar Apuesta</button>
+        </form>
+
+        <!-- Estado de apuesta -->
+        <div id="estado-apuesta" class="oculto">
+            <h3>✅ Apuesta Registrada</h3>
+            <p><strong>Nombre:</strong> <span id="estado-nombre"></span></p>
+            <p><strong>Campeón:</strong> <span id="estado-campeon"></span></p>
+            <p><strong>Podio:</strong> <span id="estado-podio"></span></p>
+            <p><strong>Tiempo Estimado:</strong> <span id="estado-tiempo"></span> min</p>
+            <p><strong>Monto Apostado:</strong> $<span id="estado-monto"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarConfirmacion(event) {
+            event.preventDefault();
+
+            document.getElementById('estado-nombre').innerText = document.getElementById('nombre').value;
+            document.getElementById('estado-campeon').innerText = document.getElementById('campeon').value;
+            document.getElementById('estado-podio').innerText = document.getElementById('podio').value;
+            document.getElementById('estado-tiempo').innerText = document.getElementById('tiempo').value;
+            document.getElementById('estado-monto').innerText = document.getElementById('monto').value;
+
+            document.getElementById('estado-apuesta').classList.remove('oculto');
+        }
+    </script>
+</body>
+</html>
