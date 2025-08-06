@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Recompensas</title>
+</head>
+<body>
+
+    <h1>Sistema de Recompensas - MotoGP y F1</h1>
+
+    <div>
+        <label for="nombre">¿Cuál es tu nombre?</label>
+        <input type="text" id="nombre" placeholder="Tu nombre">
+    </div>
+
+    <div id="trivia"></div>
+    
+    <button onclick="iniciarTrivia()">Iniciar Trivia</button>
+
+    <div id="resultado"></div>
+
+    <div id="logros"></div>
+    <div id="bonificacion"></div>
+
+    <script>
+        let puntos = 0;
+        let respuestasCorrectas = 0;
+        let logros = [];
+        let bonificacion = "";
+
+        // Preguntas y respuestas de MotoGP y F1
+        const preguntas = [
+            // MotoGP
+            { pregunta: "¿Quién ganó el campeonato de MotoGP en 2023?", respuesta: "Pecco Bagnaia" },
+            { pregunta: "¿En qué circuito se corre el Gran Premio de Mugello?", respuesta: "Italia" },
+            { pregunta: "¿Qué piloto de MotoGP tiene más campeonatos mundiales?", respuesta: "Giacomo Agostini" },
+            { pregunta: "¿Qué marca de moto ha ganado más títulos de MotoGP?", respuesta: "Honda" },
+
+            // F1
+            { pregunta: "¿Quién ganó el campeonato de F1 en 2023?", respuesta: "Max Verstappen" },
+            { pregunta: "¿Qué circuito alberga el Gran Premio de Mónaco?", respuesta: "Montecarlo" },
+            { pregunta: "¿Cuántos campeonatos mundiales ha ganado Lewis Hamilton?", respuesta: "7" },
+            { pregunta: "¿Qué equipo tiene más títulos en la historia de la F1?", respuesta: "Ferrari" }
+        ];
+
+        function iniciarTrivia() {
+            let triviaHtml = "";
+            preguntas.forEach((item, index) => {
+                triviaHtml += `
+                    <div class="question">
+                        <label>${item.pregunta}</label><br>
+                        <input type="text" id="respuesta_${index}" placeholder="Tu respuesta">
+                    </div>
+                `;
+            });
+            triviaHtml += '<button onclick="verificarRespuestas()">Verificar Respuestas</button>';
+            document.getElementById('trivia').innerHTML = triviaHtml;
+        }
+
+        function verificarRespuestas() {
+            respuestasCorrectas = 0;
+            puntos = 0;
+
+            preguntas.forEach((item, index) => {
+                const respuestaUsuario = document.getElementById(`respuesta_${index}`).value.trim();
+                if (respuestaUsuario.toLowerCase() === item.respuesta.toLowerCase()) {
+                    puntos += 10;
+                    respuestasCorrectas++;
+                }
+            });
+
+            mostrarResultado();
+            verificarLogros();
+            verificarBonificacion();
+        }
+
+        function mostrarResultado() {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `¡Has respondido ${respuestasCorrectas} preguntas correctamente!`;
+            resultadoDiv.innerHTML += `<p>Total de puntos: ${puntos}</p>`;
+        }
+
+        function verificarLogros() {
+            logros = [];
+            if (puntos >= 100) {
+                logros.push("¡Logro Desbloqueado! Has ganado 100 puntos.");
+            }
+            if (respuestasCorrectas >= 3) {
+                logros.push("¡Logro Desbloqueado! Has acertado 3 respuestas correctas seguidas.");
+            }
+
+            const logrosDiv = document.getElementById('logros');
+            logrosDiv.innerHTML = "";
+            logros.forEach(logro => {
+                logrosDiv.innerHTML += `<div>${logro}</div>`;
+            });
+        }
+
+        function verificarBonificacion() {
+            bonificacion = "";
+            if (respuestasCorrectas >= 5) {
+                bonificacion = "¡Bonificación Especial! Has alcanzado 5 respuestas correctas.";
+            }
+
+            const bonificacionDiv = document.getElementById('bonificacion');
+            bonificacionDiv.innerHTML = bonificacion ? `<div>${bonificacion}</div>` : '';
+        }
+    </script>
+
+</body>
+</html>
