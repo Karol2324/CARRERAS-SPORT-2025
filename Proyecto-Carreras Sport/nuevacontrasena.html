@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer Contraseña - Carreras Sport</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="account-page-body">
+    <main class="main-content">
+        <section class="container account-container">
+            <form id="updatePasswordForm" class="account-form active">
+                <h2>Establecer Nueva Contraseña</h2>
+                <p>Por favor, ingresa tu nueva contraseña y confírmala.</p>
+                <article class="form-group">
+                    <label for="newPassword">Nueva Contraseña</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </article>
+                <article class="form-group">
+                    <label for="confirmNewPassword">Confirmar Nueva Contraseña</label>
+                    <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+                </article>
+                <button type="submit" class="submit-btn">Cambiar Contraseña</button>
+            </form>
+            <div id="statusMessage" style="display:none; margin-top: 20px; text-align: center; color: green; font-weight: bold;"></div>
+        </section>
+    </main>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/nuevacontrasena.js"></script>
+</body>
+</html>
