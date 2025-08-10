@@ -938,6 +938,85 @@ p {
   background-color: #8a0202
 }
 
+/* --- Estilos para la Página de apuestas luego de inicar sesion --- */
+.container2 {
+    width: 90%;
+    max-width: 650px;
+    margin: 120px auto 40px; /* margen superior más grande */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+.formulario input,
+.formulario select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #007bff; /* Azul */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+
+.formulario button {
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: var(--color-rojo-ferrari);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.formulario button:hover {
+    background-color: #8a0202; /* Rojo más oscuro */
+    transform: translateY(-2px);
+}
+
+#estado-apuesta {
+    margin-top: 30px;
+    background-color: #e6ffe6;
+    padding: 20px;
+    border: 1px solid #00b300;
+    border-radius: 10px;
+}
+
+#estado-apuesta p {
+    color: #444; /* Gris medio para buena visibilidad */
+}
+
+#estado-apuesta span {
+    color: #555; /* Valores en gris */
+}
+
+.oculto {
+    display: none;
+}
+
+
 /* --- Estilos para la página de mi cuenta --- */
 /* Ajuste del cuerpo para la página de cuenta si es diferente */
 body:not(.account-page-body) {
