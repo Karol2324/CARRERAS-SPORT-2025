@@ -901,7 +901,10 @@ p {
 
 .modal-content {
   background-color: #fff;
-  margin: 12% auto;
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
   padding: 20px;
   border-radius: 12px;
   width: 90%;
@@ -1663,3 +1666,4 @@ body:not(.account-page-body) {
         width: 100%;
     }
 }
+
