@@ -925,6 +925,11 @@ p {
     color: var(--color-gris-oscuro);
 }
 
+.modal-content ul {
+    color: var(--color-gris-oscuro);
+    list-style: none;
+}
+
 .modal-btn {
   display: inline-block;
   margin-top: 15px;
@@ -1050,7 +1055,7 @@ p {
 
 .user-info h2 {
   margin-bottom: 15px;
-  color: #333;
+  color: var(--color-rojo-ferrari);
 }
 
 .user-stats {
@@ -1062,6 +1067,7 @@ p {
 .stat-item {
   flex: 1;
   background: #f9f9f9;
+  color: #444;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
