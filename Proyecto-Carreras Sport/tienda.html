@@ -25,6 +25,8 @@
                     <li id="logout-item" style="display: none;">
                         <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
                     </li>
+                    <!-- Ícono del carrito de compras -->
+                    <li><a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count">0</span></a></li>
                 </ul>
                 
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
@@ -42,6 +44,8 @@
                 <li id="logout-item" style="display: none;">
                     <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
                 </li>
+                <!-- Ícono del carrito de compras para móvil -->
+                <li><a href="#" id="cart-icon-mobile"><i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count-mobile">0</span></a></li>
             </ul>
         </section>
     </header>
@@ -61,74 +65,32 @@
             <p class="section-subtitle">Descubre la colección oficial de F1 y MotoGP.</p>
 
             <section class="product-filters">
-                <select class="filter-select">
-                    <option value="all">Todas las categorías</option>
+                <select id="filtro-select" class="filter-select">
+                    <option value="todos">Todos los productos</option>
                     <option value="f1">Fórmula 1</option>
                     <option value="motogp">MotoGP</option>
-                    <option value="apparel">Indumentaria</option>
-                    <option value="accessories">Accesorios</option>
                 </select>
-                <input type="text" class="search-input" placeholder="Buscar productos...">
+                <input type="text" id="search-input" class="search-input" placeholder="Buscar productos...">
             </section>
 
-            <section class="product-grid">
-                <article class="product-card">
-                    <img src="" alt="Gorra Red Bull Racing F1" class="product-image">
-                    <section class="product-info"> <h3 class="product-title">Gorra Red Bull Racing F1</h3>
-                        <p class="product-description">La gorra oficial del equipo Red Bull Racing de Fórmula 1.</p>
-                        <p class="product-price">$35.00</p>
-                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
-                    </section>
-                </article>
-
-                <article class="product-card">
-                    <img src="./images/product2.jpg" alt="Camiseta Valentino Rossi MotoGP" class="product-image">
-                    <section class="product-info"> <h3 class="product-title">Camiseta Valentino Rossi MotoGP</h3>
-                        <p class="product-description">Camiseta réplica de Valentino Rossi, 'The Doctor'.</p>
-                        <p class="product-price">$50.00</p>
-                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
-                    </section>
-                </article>
-
-                <article class="product-card">
-                    <img src="./images/product3.jpg" alt="Miniatura Coche F1 Lewis Hamilton" class="product-image">
-                    <section class="product-info"> <h3 class="product-title">Miniatura Mercedes F1 W13 Hamilton</h3>
-                        <p class="product-description">Coche a escala 1:43 del Mercedes-AMG F1 W13 de Lewis Hamilton.</p>
-                        <p class="product-price">$80.00</p>
-                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
-                    </section>
-                </article>
-
-                <article class="product-card">
-                    <img src="./images/product4.jpg" alt="Sudadera Ferrari F1 Team" class="product-image">
-                    <section class="product-info"> <h3 class="product-title">Sudadera Ferrari F1 Team</h3>
-                        <p class="product-description">Sudadera oficial del equipo Scuderia Ferrari de Fórmula 1.</p>
-                        <p class="product-price">$95.00</p>
-                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
-                    </section>
-                </article>
-
-                <article class="product-card">
-                    <img src="./images/product5.jpg" alt="Llavero Casco F1 Max Verstappen" class="product-image">
-                    <section class="product-info"> <h3 class="product-title">Llavero Casco Max Verstappen F1</h3>
-                        <p class="product-description">Llavero con réplica del casco de Max Verstappen.</p>
-                        <p class="product-price">$15.00</p>
-                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
-                    </section>
-                </article>
-
-                <article class="product-card">
-                    <img src="./images/product6.jpg" alt="Póster Autografiado Marc Márquez" class="product-image">
-                    <section class="product-info"> <h3 class="product-title">Póster Autografiado Marc Márquez</h3>
-                        <p class="product-description">Póster exclusivo con autógrafo impreso de Marc Márquez.</p>
-                        <p class="product-price">$25.00</p>
-                        <button class="add-to-cart-btn">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
-                    </section>
-                </article>
-
-                </section>
+            <section class="product-grid" id="product-grid"></section>
         </section>
     </main>
+    
+        <!-- Sidebar del Carrito de Compras -->
+    <aside id="shopping-cart-sidebar" class="shopping-cart-sidebar">
+        <section class="sidebar-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart-btn">&times;</button>
+        </section>
+        <ul class="cart-items-list">
+            <!-- Los elementos del carrito se renderizarán aquí -->
+        </ul>
+        <section class="cart-summary">
+            <p>Total: $<span id="cart-total-price">0.00</span></p>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </section>
+    </aside>
     
     <footer class="footer">
         <section class="footer-container">
@@ -183,7 +145,7 @@
             </section>
         </section>
     </footer>
-    
+    <script src="./script.js"></script>
     <script src="js/main.js"></script>
     <script>
         // Script para activar el enlace "Tienda" en la navegación
@@ -225,4 +187,5 @@
         });
     </script>
 </body>
+
 </html>
