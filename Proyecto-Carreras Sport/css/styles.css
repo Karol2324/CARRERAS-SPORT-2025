@@ -1019,6 +1019,185 @@ p {
     display: none;
 }
 
+/* --- Estilo general para las secciones de apuestas --- */
+.betting-header {
+  text-align: center;
+  margin: 60px auto 40px;
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.betting-header h1 {
+  font-size: 2rem;
+  color: var(--color-rojo-ferrari);
+}
+
+.betting-header p {
+  color: var(--color-blanco);
+  font-size: 1rem;
+}
+
+/* Info del usuario */
+.user-info {
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.user-info h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.user-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stat-item {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--color-rojo-ferrari);
+}
+
+.betting-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.betting-section {
+  background-color: #f5f2f2;
+  color: #444;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.section-title2 {
+  font-size: 1.8rem;
+  color: var(--color-rojo-ferrari);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Selects y opciones */
+.race-select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  color: var(--color-blanco);
+  background-color: rgba(30, 30, 30, 0.6);
+  margin-bottom: 2rem;
+}
+.betting-option {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-bottom: 0.5rem; /* espacio entre opciones */
+}
+.betting-option:hover {
+  border-color: var(--color-rojo-ferrari);
+  transform: translateY(-2px);
+}
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.odds {
+  color: var(--color-rojo-ferrari);
+}
+.bet-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+.bet-input:focus {
+  border-color: var(--color-rojo-ferrari);
+  outline: none;
+}
+
+/* Botones */
+.place-bet-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-rojo-ferrari);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.place-bet-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+}
+.place-bet-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Historial */
+.betting-history {
+  background-color: #f5f2f2;
+  color: #444;
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.history-table th,
+.history-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}
+.history-table th {
+  background: rgba(225, 6, 0, 0.1);
+  color: var(--color-rojo-ferrari);
+}
+.status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.status.pending { color: #FF9800; background: rgba(255, 152, 0, 0.2); }
+.status.won { color: #4CAF50; background: rgba(76, 175, 80, 0.2); }
+.status.lost { color: #f44336; background: rgba(244, 67, 54, 0.2); }
+
+
 
 /* --- Estilos para la página de mi cuenta --- */
 /* Ajuste del cuerpo para la página de cuenta si es diferente */
