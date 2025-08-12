@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
   
   showForm('loginForm'); // Mostrar login al cargar
 
-  // --- NUEVA LÓGICA DE AUTENTICACIÓN CON SUPABASE ---
+  // --- LÓGICA DE AUTENTICACIÓN CON SUPABASE ---
 
-  // 1. Registro con Supabase Auth
+  // 1. Registro
   registerForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     
@@ -64,14 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Usamos la función signUp de Supabase que maneja la creación del usuario de forma segura.
-    // Esto crea un usuario en el sistema de autenticación de Supabase, no en tu tabla 'usuarios'.
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
       options: {
         data: {
-          full_name: nombreCompleto // Guardamos el nombre completo en los metadatos del usuario.
+          full_name: nombreCompleto
         }
       }
     });
@@ -85,14 +83,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 2. Inicio de sesión con Supabase Auth
+  // 2. Inicio de sesión
   loginForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value.trim();
     const password = document.getElementById('loginPassword').value;
 
-    // Usamos la función signInWithPassword de Supabase.
-    // Esta función verifica el email y la contraseña de forma segura.
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
@@ -105,11 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (data && data.user) {
-      // Si el inicio de sesión es exitoso, Supabase devuelve un objeto de usuario.
-      // Puedes guardar información como el nombre de usuario de los metadatos.
       const nombreUsuario = data.user.user_metadata?.full_name || data.user.email;
       localStorage.setItem('nombreUsuario', nombreUsuario);
-      window.location.href = 'index.html'; // Redirige al inicio
+      window.location.href = 'index.html';
     }
   });
 
@@ -118,10 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
     const email = document.getElementById('recoverEmail').value.trim();
     
-    // Esta función envía el correo de recuperación.
-    // La URL 'redirectTo' es la página a la que el usuario será enviado después de hacer clic en el enlace.
+    // Aquí está la línea corregida
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: window.location.origin + '/nuevacontrasena.html' 
+      redirectTo: 'http://127.0.0.1:5500/CARRERAS-SPORT-2025-main/Proyecto-Carreras%20Sport/nuevacontrasena.html' 
     });
 
     if (error) {
