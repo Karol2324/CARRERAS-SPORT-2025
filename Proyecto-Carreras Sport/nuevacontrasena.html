@@ -1,32 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña - Carreras Sport</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body class="account-page-body">
-    <main class="main-content">
-        <section class="container account-container">
-            <form id="updatePasswordForm" class="account-form active">
-                <h2>Establecer Nueva Contraseña</h2>
-                <p>Por favor, ingresa tu nueva contraseña y confírmala.</p>
-                <article class="form-group">
-                    <label for="newPassword">Nueva Contraseña</label>
-                    <input type="password" id="newPassword" name="newPassword" required>
-                </article>
-                <article class="form-group">
-                    <label for="confirmNewPassword">Confirmar Nueva Contraseña</label>
-                    <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
-                </article>
-                <button type="submit" class="submit-btn">Cambiar Contraseña</button>
-            </form>
-            <div id="statusMessage" style="display:none; margin-top: 20px; text-align: center; color: green; font-weight: bold;"></div>
-        </section>
-    </main>
-    <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/nuevacontrasena.js"></script>
-</body>
-</html>
+// Conexión a Supabase (debe ser la misma que en registro.js)
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabaseUrl = 'https://excevrofgzathrripceq.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4Y2V2cm9mZ3phdGhycmlwY2VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMyMDE4MTIsImV4cCI6MjA2ODc3NzgxMn0.AAyL9tvpEBblI1107r_P3bMOsEULP5ffVESt_T1OUnM';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+document.addEventListener('DOMContentLoaded', async function () {
+  const updatePasswordForm = document.getElementById('updatePasswordForm');
+  const statusMessage = document.getElementById('statusMessage');
+
+  // Supabase automáticamente maneja el token de la URL. Solo necesitamos obtener la sesión.
+  const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+  if (sessionError || !session) {
+    statusMessage.style.display = 'block';
+    statusMessage.style.color = 'red';
+    statusMessage.innerText = 'El enlace de recuperación es inválido o ha expirado. Por favor, solicita uno nuevo.';
+    updatePasswordForm.style.display = 'none';
+    return;
+  }
+  
+  if (updatePasswordForm) {
+    updatePasswordForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+      if (newPassword !== confirmNewPassword) {
+        statusMessage.style.display = 'block';
+        statusMessage.style.color = 'red';
+        statusMessage.innerText = 'Las contraseñas no coinciden.';
+        return;
+      }
+      
+      statusMessage.innerText = '';
+      statusMessage.style.display = 'none';
+
+      try {
+        // La función updateUser actualiza la contraseña del usuario que está logueado con el token.
+        const { data, error } = await supabase.auth.updateUser({
+          password: newPassword
+        });
+
+        if (error) {
+          console.error('Error al actualizar la contraseña:', error.message);
+          statusMessage.style.display = 'block';
+          statusMessage.style.color = 'red';
+          statusMessage.innerText = 'No se pudo actualizar la contraseña. Por favor, inténtalo de nuevo.';
+        } else {
+          statusMessage.style.display = 'block';
+          statusMessage.style.color = 'green';
+          statusMessage.innerText = '¡Contraseña actualizada con éxito! Redirigiendo...';
+          
+          // --- ESTA ES LA LÍNEA CORREGIDA ---
+          setTimeout(() => {
+            window.location.href = 'http://127.0.0.1:5500/CARRERAS-SPORT-2025-main/Proyecto-Carreras%20Sport/cuenta.html';
+          }, 3000);
+        }
+      } catch (error) {
+        console.error('Error al procesar la solicitud:', error);
+        statusMessage.style.display = 'block';
+        statusMessage.style.color = 'red';
+        statusMessage.innerText = 'Ocurrió un error inesperado. Por favor, inténtalo de nuevo.';
+      }
+    });
+  }
+});
