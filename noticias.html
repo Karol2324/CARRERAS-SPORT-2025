@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Últimas noticias, calendario, apuestas y tienda de productos exclusivos de Fórmula 1 y MotoGP.">
+  <title>Noticias F1 y MotoGP - Carreras Sport</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo5.png" type="image/x-icon">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <section class="header-container">
+      <a href="#" class="logo">
+        <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+      </a>
+        
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="./index.html"> Inicio</a></li>
+          <li><a href="./noticias.html" class="active"> Noticias</a></li>
+          <li><a href="./calendario.html"> Calendario</a></li>
+          <li><a href="./apuestas.html"> Apuestas</a></li>
+          <li><a href="./tienda.html"> Tienda</a></li>
+          <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+          <li id="logout-item" style="display: none;">
+            <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+          </li>
+        </ul>
+          
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+      </nav>
+    </section>
+      
+    <section class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="./index.html"> Inicio</a></li>
+        <li><a href="./noticias.html" class="active"> Noticias</a></li>
+        <li><a href="./calendario.html"> Calendario</a></li>
+        <li><a href="./apuestas.html"> Apuestas</a></li>
+        <li><a href="./tienda.html"> Tienda</a></li>
+        <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+        <li id="logout-item" style="display: none;">
+          <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+        </li>
+      </ul>
+    </section>
+  </header>
+
+  <!-- Main Notices -->
+  <main class="main-notice">
+    <h1 class="main-title">NOTICIAS PRINCIPALES</h1>
+    
+    <!-- Introduction to news -->
+    <section class="container-notice">
+      <section class="section-notice">
+        <article class="description-notice">
+          <h2 class="notice-subtitle">Formula 1</h2>
+          <h3>Información general</h3>
+          <p>La Fórmula 1 vuelve a la acción este fin de semana con el Gran Premio de Bélgica, y como suele suceder en el legendario circuito de Spa-Francorchamps, el clima podría jugar un papel determinante en el desarrollo del evento.</p>
+          <img src="./images/imagen-principal.jpeg" alt="El pronóstico del tiempo para el GP de Bélgica 2025 de F1 en Spa" class="img-f1"/>
+          <p>A pesar de estar en pleno verano europeo, las condiciones meteorológicas en la región de las Ardenas serán muy variables, y podrían condicionar tanto la preparación como el resultado de la carrera del domingo. El fin de semana contará con formato sprint, lo que reduce el tiempo de rodaje previo a la acción competitiva. El viernes se disputará la única sesión de entrenamientos libres a las 12:30, hora local, seguida por la clasificación para la carrera sprint a las 16:30. Según el pronóstico, podrían registrarse lluvias desde el mediodía, y la posibilidad de chubascos se incrementará hacia la tarde.<br><br>La sprint, que se correrá a las 12:00, tendría lugar en seco y con cielo mayormente soleado. La temperatura rondará los 20 °C, con viento débil. Sin embargo, los asistentes deberán tomar precauciones por la alta radiación solar: el índice UV llegará a nivel 7, lo que implica riesgo de quemaduras en piel expuesta en menos de 20 minutos. También la clasificación para la carrera principal se desarrollaría en condiciones estables, con temperaturas de hasta 23 °C y buena temperatura de pista gracias a la exposición solar.</p><br><br>
+          <h3>¿Y qué puede pasar en el Gran Premio de Hungría?</h3>
+          <p>El siguiente destino del calendario será el Gran Premio de Hungría. Allí, el clima también promete desafíos, con posible lluvia en carrera, aunque con temperaturas más elevadas: se esperan hasta 32 °C, lo que incrementará considerablemente el calor en pista.</p>
+        </article>
+      </section> 
+
+      <section class="section-notice">
+        <article class="description-notice">
+          <h2>MotoGP</h2>
+          <h3>Información general</h3>
+          <p>Mercado de pilotos 2025: La temporada nos está regalando una primera mitad de año de auténtica locura. Hasta ahora, la acción en la pista está al rojo vivo y alumbra historias previamente inimaginables y una batalla por el Campeonato entre hermanos que levanta pasiones.</p>
+          <img src="./images/fichajes-1.jpg" alt="El pronóstico del tiempo para el GP de Bélgica 2025 de F1 en Spa" class="img-mgp" /><br>
+          <h3>Contratos por renovar</h3>
+          <p>Hay cuatro asientos en la parrilla que no han sido confirmados para 2026: Johann Zarco (CASTROL Honda LCR) está al final de su contrato de dos años, Jack Miller dispone de un contrato de un año en el Prima Pramac Yamaha MotoGP, Luca Marini (Honda HRC Castrol) concluye su acuerdo de dos años y Franco Morbidelli (Pertamina Enduro VR46 Racing Team) firmó por un año. Sin embargo, como siempre ocurre en la 'silly season', surgen más rumores sobre otros pilotos que podrían tener contrato, pero existen cláusulas que pueden activarse si cualquiera de las partes -piloto o equipo- lo desea por algún motivo.</p><br>
+          <h3>FIN DEL MISTERIO: Jorge Martín seguirá con Aprilia</h3>
+          <p>Una de las noticias más importantes de la temporada ha sido el comunicado de Jorge Martín, publicado a finales de mayo tras el GP del Reino Unido. Posteriormente, durante el fin de semana del GP de los Países Bajos, se hicieron más declaraciones, con el manager de Martín, Albert Valera, hablando el sábado por la mañana, seguido de nuevas palabras del CEO de Aprilia Racing, Massimo Rivola, en un 'media scrum' el domingo por la mañana, asegurando que el '1' tiene contrato para 2026. Sin embargo, no fue hasta la vuelta del '1' a la competición, en Brno, cuando él mismo zanjó el asunto: al final, no cambia nada. Martín estará con Aprilia en 2026. Cualquier esperanza de otros pilotos por hacerse con una plaza en el equipo de fábrica se ha desvanecido.</p>
+        </article>
+      </section>
+      
+     <aside class="aside-notice">      
+  <h2 class="aside-title">ULTIMAS NOTICIAS</h2>
+
+  <label for="filterCategory">Filtrar por categoría:</label>
+  <select id="filterCategory" aria-label="Filtrar noticias por categoría">
+    <option value="all">Todas</option>
+    <option value="F1">F1</option>
+    <option value="MotoGP">MotoGP</option>
+  </select>
+
+  <section class="notice" data-category="F1">
+    <img src="./images/verstappen-gana.jpeg" alt="Verstappen gana GP Hungría" />
+    <section class="content-notice">
+      <article class="category">F1</article>
+      <article class="title-notice">Verstappen gana el GP de Hungría 2025</article>
+      <article class="date-notice">21 de julio, 2025</article>
+      <a href="https://espndeportes.espn.com/deporte-motor/f1/nota/_/id/12346066/max-verstappen-gp-hungria-f1-gana-de-principio-a-fin" class="read-more">Leer más &rarr;</a>
+    </section>
+  </section>
+
+  <section class="notice" data-category="F1">
+    <img src="./images/hamilton-logra.jpeg" alt="Hamilton pole Spa" />
+    <article class="content-notice">
+      <article class="category">F1</article>
+      <article class="title-notice">Hamilton logra la pole en Spa</article>
+      <article class="date-notice">19 de julio, 2025</article>
+      <a href="https://www.espn.com.co/deporte-motor/f1/nota/_/id/4684202/lewis-hamilton-logra-la-pole-en-spa" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="F1">
+    <img src="./images/red-bull.jpeg" alt="Red Bull monoplaza 2026" />
+    <article class="content-notice">
+      <article class="category">F1</article>
+      <article class="title-notice">Red Bull presenta su monoplaza para 2026</article>
+      <article class="date-notice">22 de julio, 2025</article>
+      <a href="https://www.antena3.com/noticias/deportes/motor/red-bull-presenta-rb21-monoplaza-que-verstappen-busca-quinto-titulo_2025022567bdffd88b377d000198ec07.html" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="F1">
+    <img src="./images/circuito-gb.avif" alt="Gran Premio Gran Bretaña" />
+    <article class="content-notice">
+      <article class="category">F1</article>
+      <article class="title-notice">Gran Premio de Gran Bretaña, Silverstone</article>
+      <article class="date-notice">6 de julio, 2025</article>
+      <a href="https://www.formula1.com/en/information/great-britain-silverstone-circuit.2DtFVI1FjkYgLVdGhbAIv0" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="F1">
+    <img src="./images/russel.avif" alt="George Russell" />
+    <article class="content-notice">
+      <article class="category">F1</article>
+      <article class="title-notice">George Russell se lleva la victoria en Canadá tras choque entre McLarens</article>
+      <article class="date-notice">15 de junio, 2025</article>
+      <a href="https://www.reuters.com/sports/formula1/russell-wins-canada-after-mclarens-collide-norris-out-2025-06-15/" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="MotoGP">
+    <img src="./images/bagnaia.jpeg" alt="Bagnaia GP Austria" />
+    <article class="content-notice">
+      <article class="category-motogp">MotoGP</article>
+      <article class="title-notice">Bagnaia se impone en Austria 2025</article>
+      <article class="date-notice">20 de julio, 2025</article>
+      <a href="https://www.dazn.com/es-ES/news/motor/pecco-bagnaia-desvela-estrategia-ganar-austria-sabia-tenia-ritmo-ganar-carrera-he-intentado-todo-estar-delante/rp61w1i08kuw1nae513j3qmjs" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="MotoGP">
+    <img src="./images/jorge-martin.jpeg" alt="Jorge Martín podio Silverstone" />
+    <article class="content-notice">
+      <article class="category-motogp">MotoGP</article>
+      <article class="title-notice">Jorge Martín sube al podio en Silverstone</article>
+      <article class="date-notice">18 de julio, 2025</article>
+      <a href="https://www.redbull.com/es-es/motogp-gran-premio-gran-bretana-silverstone-podio-jorge-martin" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="MotoGP">
+    <img src="./images/marc-marquez.jpeg" alt="Marc Márquez Ducati" />
+    <article class="content-notice">
+      <article class="category-motogp">MotoGP</article>
+      <article class="title-notice">Marc Márquez confirma renovación con Ducati</article>
+      <article class="date-notice">17 de julio, 2025</article>
+      <a href="https://www.elgoldigital.com/motor/motogp/ducati-ofrece-a-marc-marquez-renovacion-vitalicia/" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="MotoGP">
+    <img src="./images/circuito-sachsenring.jpg" alt="Gran Premio Alemania" />
+    <article class="content-notice">
+      <article class="category-motogp">MotoGP</article>
+      <article class="title-notice">Gran Premio de Alemania, Sachsenring</article>
+      <article class="date-notice">13 de julio, 2025</article>
+      <a href="https://www.dazn.com/es-ES/news/motor/circuito-sachsenring-donde-esta-como-es-caracteristicas-como-llegar-fotos-escenario-gp-alemania-mundial-motogp/x6iggvi2etzp15hzs1lkqtouw" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+
+  <section class="notice" data-category="MotoGP">
+    <img src="./images/marquez.avif" alt="Marc Márquez Alemania" />
+    <article class="content-notice">
+      <article class="category-motogp">MotoGP</article>
+      <article class="title-notice">Marc Márquez domina en Alemania</article>
+      <article class="date-notice">13 de julio, 2025</article>
+      <a href="https://www.dazn.com/es-ES/news/motor/circuito-sachsenring-donde-esta-como-es-caracteristicas-como-llegar-fotos-escenario-gp-alemania-mundial-motogp/x6iggvi2etzp15hzs1lkqtouw" class="read-more">Leer más &rarr;</a>
+    </article>
+  </section>
+</aside>
+
+
+<script src="js/main.js"></script>
+<script>
+  const filterSelect = document.getElementById('filterCategory');
+  const notices = document.querySelectorAll('.notice');
+
+  filterSelect.addEventListener('change', () => {
+    const selectedCategory = filterSelect.value;
+
+    notices.forEach(notice => {
+      const category = notice.getAttribute('data-category');
+
+      if (selectedCategory === 'all' || category === selectedCategory) {
+        notice.style.display = 'block';
+      } else {
+        notice.style.display = 'none';
+      }
+    });
+  });
+</script>

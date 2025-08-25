@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreras Sport - F1 & MotoGP</title>
+    <link rel="stylesheet" href="css/cookiestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="./images/logo5.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body>
+    <header class="header">
+        <section class="header-container">
+            <a href="index.html" class="logo">
+                <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+            </a>
+            <nav>
+                <ul class="nav-desktop">
+                    <li><a href="./index.html" class="active"> Inicio</a></li>
+                    <li><a href="./noticias.html"> Noticias</a></li>
+                    <li><a href="./calendario.html"> Calendario</a></li>
+                    <li><a href="./apuestas.html"> Apuestas</a></li>
+                    <li><a href="./tienda.html"> Tienda</a></li>
+                    <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+                    <li id="logout-item" style="display: none;">
+                        <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                    </li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+            </nav>
+        </section>
+        <section class="nav-mobile" id="mobileMenu">
+            <ul>
+                <li><a href="./index.html" class="active"> Inicio</a></li>
+                <li><a href="./noticias.html"> Noticias</a></li>
+                <li><a href="./calendario.html"> Calendario</a></li>
+                <li><a href="./apuestas.html"> Apuestas</a></li>
+                <li><a href="./tienda.html"> Tienda</a></li>
+                <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+                <li id="logout-item" style="display: none;">
+                    <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                </li>
+            </ul>
+        </section>
+    </header>
+    
+    <main class="main-content">
+        <section>
+            <h1>Política de Cookies de Carreras Sport</h1>
+            <p>Esta política describe qué son las cookies, cómo las utilizamos en el sitio web de Carreras Sport y cómo puedes gestionarlas. Al usar nuestro sitio, aceptas el uso de cookies de acuerdo con esta política.</p>
+        </section>
+        <section>
+            <h2>1. ¿Qué son las Cookies?</h2>
+            <p>Las cookies son pequeños archivos de texto que se almacenan en tu navegador cuando visitas un sitio web. Estas nos ayudan a recordar tu información de inicio de sesión, tus preferencias y a entender cómo usas el sitio para mejorar tu experiencia.</p>
+        </section>
+        <section>
+            <h2>2. ¿Qué Tipos de Cookies Usamos?</h2>
+            <p>En Carreras Sport, usamos los siguientes tipos de cookies:</p>
+            <ul>
+                <li><strong>Cookies Esenciales:</strong> Estas cookies son necesarias para el funcionamiento del sitio web. Nos permiten gestionar el inicio de sesión de usuarios, mantener la sesión activa, y recordar tus preferencias, como la aceptación del banner de cookies. Sin estas cookies, el sitio no funcionaría correctamente.</li>
+                <li><strong>Cookies de Rendimiento y Analíticas:</strong> Usamos estas cookies para recopilar información anónima sobre cómo los visitantes usan nuestro sitio. Por ejemplo, qué páginas visitan con más frecuencia. Esta información nos ayuda a mejorar el rendimiento y la usabilidad del sitio.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>3. ¿Cómo Gestionar las Cookies?</h2>
+            <p>La mayoría de los navegadores te permiten gestionar o eliminar las cookies a través de su configuración. Ten en cuenta que, si decides desactivar o eliminar las cookies, algunas funcionalidades del sitio pueden no operar de forma correcta.</p>
+        </section>
+        <section>
+            <h2>4. Cambios en la Política de Cookies</h2>
+            <p>Nos reservamos el derecho de actualizar esta política de cookies en cualquier momento. Te recomendamos revisarla periódicamente para estar al tanto de cualquier cambio.</p>
+        </section>
+    </main>
+    <section id="cookie-banner" class="hidden">
+        <div class="cookie-content">
+            <h4>Gestionar tu privacidad</h4>
+            <p>Utilizamos cookies para mejorar la experiencia de usuario, analizar el tráfico del sitio web y personalizar el contenido. Para más información, puedes revisar nuestra <a href="/politica-de-cookies.html">Política de Cookies</a>.</p>
+            <div class="cookie-buttons">
+                <button id="accept-all">Aceptar todas</button>
+                <button id="accept-necessary">Solo necesarias</button>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+  <footer class="footer">
+    <section class="footer-container">
+      <section class="footer-content">
+        <article class="footer-section">
+          <h3>Carreras Sport</h3>
+          <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+          <article class="social-links">
+            <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+          </article>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Navegación</h3>
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./noticias.html">Noticias</a></li>
+            <li><a href="./calendario.html">Calendario</a></li>
+            <li><a href="./apuestas.html">Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda</a></li>
+            <li><a href="./cuenta.html">Mi cuenta</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+            <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda Oficial</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Soporte</h3>
+          <ul>
+            <li><a href="Centro-de-Ayuda.html">Centro de Ayuda</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="TerminosyCondiciones.html">Términos y Condiciones</a></li>
+            <li><a href="Politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="Cookies.html">Cookies</a></li>
+          </ul>
+        </article>
+      </section>
+      
+      <section class="footer-bottom">
+        <p>&copy; 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+      </section>
+    </section>
+  </footer>
+    <section id="cookie-banner" style="display: none;">
+  <p>Este sitio utiliza cookies para mejorar la experiencia. Al continuar, aceptas nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
+  <button id="accept-cookies">Aceptar</button>
+</section>
+  <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
+</body>
+</html>

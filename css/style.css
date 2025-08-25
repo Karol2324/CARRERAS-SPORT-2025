@@ -1,0 +1,757 @@
+/* Importar tipografías de Google Fonts si este archivo se usa de forma independiente */
+/* Si este CSS se carga DESPUÉS de tu CSS principal que ya importa las fuentes,
+   puedes comentar o eliminar las siguientes líneas para evitar duplicados. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* Definición de variables CSS para los colores (duplicado si ya están en tu CSS principal,
+   pero útil si este archivo se carga de forma independiente o para garantizar herencia) */
+
+:root {
+    --color-rojo-ferrari: #CC0000;
+    --color-gris-oscuro: #333;
+    --color-gris-claro: #505050;
+    --color-negro: #000;
+    --color-blanco: #FFF;
+    --color-fondo-transparente-oscuro: rgba(30, 30, 30, 0.6); 
+    --color-sombra-clara: rgba(0, 0, 0, 0.3); 
+    --color-sombra-oscura: rgba(0, 0, 0, 0.5);
+}
+/* Reset y configuración base (si no está ya en tu CSS principal o si este archivo se usa solo) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-blanco);
+    background-image: url(../images/bgc-index.jpg);
+    line-height: 1.6;
+    min-height: 100vh; /*100% del alto de la pantalla visible del navegador*/
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* oscurece el fondo */
+    z-index: -1;
+}
+
+.header {
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-icon {
+    height: 70px;
+    width: auto;
+}
+
+
+.nav-desktop {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-desktop li {
+    position: relative;
+}
+
+.nav-desktop a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: color 0.3s ease; /* Suave transición al pasar el ratón */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-desktop a:hover {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.nav-desktop a.active {
+    background-color: var(--color-gris-oscuro);
+    font-weight: bold;
+}
+
+.nav-desktop a.active:hover {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: none;
+    color: var(--color-blanco);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-rojo-ferrari);
+}
+
+/* Mobile menu */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-gris-oscuro);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-mobile ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.nav-mobile a {
+    display: block;
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile a:hover {
+    background-color: var(--color-rojo-ferrari);
+    padding-left: 3rem;
+}
+
+.calendar-container {
+    /* Adoptando estilos del .container principal */
+    max-width: 1200px;
+    width: 90%; /* Mantener el ancho del 90% para flexibilidad */
+    margin: auto; /* Centrar el calendario si es el único contenido */
+    background-color: var(--color-fondo-transparente-oscuro); /* rgba(30, 30, 30, 0.6) */
+    border-radius: 20px; /* Redondeado como otros contenedores */
+    padding: 3rem; /* Padding consistente */
+    box-shadow: 0 20px 60px var(--color-sombra-clara); /* Sombra consistente */
+    text-align: center;
+    backdrop-filter: blur(10px); /* Efecto de desenfoque como en tu .container */
+}
+
+.main-title {
+    /* Usando las propiedades de h1 de tu CSS principal */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem; /* Aumentado para coincidir con tu .main-title */
+    font-weight: bold;
+    color: var(--color-rojo-ferrari); /* Usando la variable */
+    -webkit-background-clip: text; /* Propiedades para el color del texto si lo necesitas como gradiente */
+    -webkit-text-fill-color: transparent; /* Pero el color sólido es más sencillo */
+    background-clip: text; /* Comentadas porque solo necesitas 'color' aquí para sólido */
+    text-align: center;
+    margin-bottom: 2rem; /* Espaciado consistente */
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Como en tu .upcoming-calendar-section .section-title */
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espacio entre filas */
+}
+
+.calendar-table th,
+.calendar-table td {
+    padding: 0; /* padding del td lo controla el <a> */
+    vertical-align: middle;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.calendar-table thead th {
+    /* Estilos para thead de tu calendario */
+    background-color: var(--color-gris-oscuro); /* Fondo más oscuro para encabezados */
+    color: var(--color-blanco);
+    font-size: 1.3em;
+    text-transform: uppercase;
+    padding: 15px;
+    border-bottom: 2px solid var(--color-gris-claro); /* Borde sutil */
+    text-align: center;
+    font-family: 'Orbitron', sans-serif; /* Consistente con tus títulos */
+    font-weight: bold;
+}
+
+.calendar-table tbody tr {
+    background-color: var(--color-gris-claro); /* Fondo claro para filas, como racing-card */
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.calendar-table tbody tr:hover {
+    background-color: #606060; /* Un poco más claro al pasar el ratón */
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón, como tus tarjetas */
+    box-shadow: 0 10px 30px var(--color-sombra-clara); /* Sombra al pasar el ratón */
+}
+
+/* Specific styling for F1 and MotoGP headers */
+.f1-header {
+    background-color: var(--color-rojo-ferrari); /* F1 Red */
+    border-top-left-radius: 15px; /* Adoptando el radio de 15px */
+    border-bottom-left-radius: 15px;
+}
+
+.motogp-header {
+    background-color: #004587; /* MotoGP Blue (se mantiene, pero podrías definirlo como variable si lo usas más) */
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Individual cell styling */
+.round {
+    width: 50px;
+    font-weight: bold;
+    color: #999999; /* Se mantiene un gris más oscuro para el número de ronda */
+    text-align: center;
+    border-right: 1px solid #444; /* Separador */
+    padding: 12px 15px;
+    font-family: 'Orbitron', sans-serif; /* Usar Orbitron para números de ronda */
+}
+
+.flag-column {
+    width: 60px;
+    text-align: center;
+    padding: 12px 15px;
+}
+
+.flag-column img {
+    width: 40px;
+    height: auto;
+    border: 1px solid #555;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.race-info a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.race-info a:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Ligero cambio de fondo al pasar el ratón */
+}
+
+/* Estilo para la carrera activa/seleccionada */
+.race-info a.active {
+    background-color: var(--color-rojo-ferrari); /* Fondo rojo para la seleccionada */
+    color: var(--color-blanco); /* Texto blanco para la seleccionada */
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.7); /* Sombra roja para resaltarlo */
+    transform: scale(1.02); /* Un ligero zoom */
+}
+
+/* Opcional: Estilos para enlaces no activos cuando hay uno activo */
+.calendar-container.race-selected .race-info a:not(.active) {
+    opacity: 0.6; /* Más transparentes */
+    pointer-events: none; /* Deshabilita el click en los no activos */
+    filter: grayscale(50%); /* Opcional: Hacerlos un poco grises */
+}
+/* Aseguramos que los enlaces activos no tengan pointer-events: none */
+.calendar-container.race-selected .race-info a.active {
+    pointer-events: auto;
+    opacity: 1;
+    filter: none;
+}
+
+
+.race-name {
+    font-weight: bold;
+    color: var(--color-blanco); /* Usando la variable de color blanco */
+    font-size: 1.1em;
+    font-family: 'Orbitron', sans-serif; /* Aplicar Orbitron al nombre de la carrera */
+}
+
+.location {
+    color: #aaaaaa; /* Mantener un gris específico si no hay variable para este matiz */
+    font-size: 0.9em;
+}
+
+.date {
+    color: #cccccc; /* Mantener un gris específico si no hay variable para este matiz */
+    font-size: 0.85em;
+}
+
+/* Adjusting padding for the first and last cells of a row to simulate rounded corners */
+.calendar-table tbody tr td:first-child {
+    border-top-left-radius: 15px; /* Adoptando el radio de 15px */
+    border-bottom-left-radius: 15px;
+}
+
+.calendar-table tbody tr td:last-child {
+    border-top-right-radius: 15px; /* Adoptando el radio de 15px */
+    border-bottom-right-radius: 15px;
+}
+
+
+/* --- Responsive (Adapta a tus breakpoints si son diferentes) --- */
+@media (max-width: 768px) {
+    .calendar-container {
+        padding: 2rem;
+        margin: 1rem auto; /* Ajuste el margen para móviles */
+        width: 95%; /* Un poco más de ancho en móviles */
+    }
+
+    .main-title {
+        font-size: 2.5rem; /* Ajustado para móviles */
+        margin-bottom: 1.5rem;
+    }
+
+    .calendar-table th,
+    .calendar-table td {
+        padding: 10px 10px; /* Reducir padding en móvil */
+        font-size: 0.9em;
+    }
+
+    .f1-header,
+    .motogp-header {
+        font-size: 1.1em; /* Ajustar tamaño de fuente de encabezados */
+        padding: 10px;
+    }
+
+    .race-name {
+        font-size: 1em;
+    }
+
+    .location, .date {
+        font-size: 0.8em;
+    }
+
+    .flag-column img {
+        width: 30px; /* Reducir tamaño de banderas */
+    }
+
+    .round {
+        width: 40px; /* Reducir ancho de ronda */
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container {
+        padding: 1.5rem;
+        margin: 0.5rem auto; /* Ajuste el margen para móviles muy pequeños */
+        width: 100%; /* Ocupa el 100% de la pantalla */
+        border-radius: 0; /* Sin bordes redondeados en los extremos si ocupa todo el ancho */
+    }
+
+    .main-title {
+        font-size: 2rem; /* Ajustado para móviles muy pequeños */
+        margin-bottom: 1rem;
+    }
+
+    .calendar-table {
+        /* Fuerza una mínima anchura para que no se vea aplastado */
+        min-width: 500px;
+        display: block; /* Permite scroll horizontal */
+        overflow-x: auto; /* Permite scroll horizontal */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .calendar-table tbody tr {
+        border-radius: 8px; /* Un poco menos redondeado en móvil */
+    }
+
+    .f1-header,
+    .motogp-header {
+        font-size: 1em;
+        padding: 8px;
+        border-radius: 8px; /* Menos redondeado */
+    }
+
+    .calendar-table tbody tr td:first-child {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+
+    .calendar-table tbody tr td:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+  }
+}
+
+.footer {
+    background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+    color: white;
+    padding: 3rem 2rem 1rem;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-rojo-ferrari);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.footer-section p {
+    color: #ccc;
+    text-align: center;
+
+}
+
+.footer-section ul {
+    list-style: none;
+
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+    text-align: center;
+}
+
+.footer-section a:hover {
+    color: #8a0202;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-gris-oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0;
+    font-size: 0; /* evita espacios invisibles dentro */
+}
+
+.social-link i {
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- NUEVAS REGLAS O MODIFICACIONES PARA EL CALENDARIO --- */
+
+/* Contenedor principal para la página del calendario */
+.calendar-page-main {
+    margin-top: 50px; /* Espacio para el header fijo */
+    flex: 1; /*Para que ocupe el espacio restante y empuje el footer hacia abajo */
+    padding: 2rem; /* Padding general de la página */
+    width: 100%;
+    display: flex; /* Para centrar el título y el contenedor de tablas */
+    flex-direction: column;
+    align-items: center;
+    /* Este contenedor reemplaza la funcionalidad de .calendar-container anterior para centrar y añadir padding a toda la sección del calendario */
+}
+
+
+/* Título principal del calendario */
+.main-title {
+    /* Esto ya lo tienes en tu CSS principal para .main-title. Asegúrate de que apunte a las variables */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-rojo-ferrari);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* Nuevo contenedor que envuelve las dos tablas (F1 y MotoGP) */
+.calendar-tables-wrapper {
+    display: flex; /* Para que las dos secciones de calendario estén lado a lado */
+    gap: 20px; /* Espacio entre las dos tablas F1 y MotoGP */
+    width: 90%; /* Ancho general del bloque de calendarios */
+    max-width: 1200px;
+    justify-content: center; /* Centra las dos tablas si el espacio lo permite */
+    flex-wrap: wrap; /* Permite que las tablas se apilen en pantallas pequeñas */
+    padding: 1rem; /* Pequeño padding interno para el wrapper */
+    /* Usar los colores y sombras de tu tema principal */
+    background-color: var(--color-fondo-transparente-oscuro, rgba(30, 30, 30, 0.6)); 
+    border-radius: 20px;
+    box-shadow: 0 20px 60px var(--color-sombra-clara, rgba(0, 0, 0, 0.3));
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem; /* Espacio antes del footer */
+}
+
+/* Estilos para cada grupo de calendario (F1 y MotoGP) */
+.calendar-group {
+    flex: 1 1 48%; /* Cada grupo ocupa casi la mitad del ancho */
+    min-width: 300px; /* Ancho mínimo para cada columna antes de apilarse */
+    /* Fondo para cada columna de F1/MotoGP */
+    background-color: var(--color-gris-oscuro); 
+    border-radius: 15px; /* Bordes redondeados para las secciones */
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Asegura que los border-radius se apliquen bien */
+}
+
+/* Estilos para los títulos de cada grupo (F1 y MotoGP) */
+.group-header {
+    margin-top: 0; 
+    margin-bottom: 15px;
+    font-size: 1.8em; 
+    padding: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--color-blanco);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+}
+
+/* Colores específicos para los encabezados F1 y MotoGP */
+.f1-calendar-section .group-header {
+    background-color: var(--color-rojo-ferrari);
+}
+
+.motogp-calendar-section .group-header {
+    background-color: #004587; /* Mantener el azul de MotoGP */
+}
+
+
+/* Estilos para la tabla dentro de cada grupo */
+.calendar-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* Espacio entre filas */
+}
+
+/* Eliminar padding directo de td/th para que el enlace lo controle */
+.calendar-table th,
+.calendar-table td {
+    padding: 0; 
+    vertical-align: middle;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Estilos para las filas de las carreras */
+.calendar-table tbody tr {
+    background-color: var(--color-gris-claro); 
+    border-radius: 10px; 
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.calendar-table tbody tr:hover {
+    background-color: #606060;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para las celdas individuales */
+.round {
+    width: 50px;
+    font-weight: bold;
+    color: #999999;
+    text-align: center;
+    border-right: 1px solid #444;
+    padding: 12px 10px; 
+    font-family: 'Orbitron', sans-serif;
+}
+
+.flag-column {
+    width: 60px;
+    text-align: center;
+    padding: 12px 5px; 
+}
+
+.flag-column img {
+    width: 36px;
+    height: auto;
+    border: 1px solid #555;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+/* Estilos para el enlace dentro de la celda de información de la carrera */
+.race-info a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.race-info a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la carrera activa/seleccionada */
+.race-info a.active {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.7);
+    transform: scale(1.01);
+}
+
+/* Estilos para enlaces no activos cuando hay uno activo */
+.calendar-tables-wrapper.race-selected .race-info a:not(.active) { 
+    opacity: 0.6;
+    pointer-events: none; /* Deshabilita el click */
+    filter: grayscale(50%);
+}
+.calendar-tables-wrapper.race-selected .race-info a.active { 
+    pointer-events: auto; /* Re-habilita el click para el activo */
+    opacity: 1;
+    filter: none;
+}
+
+
+.race-name {
+    font-weight: bold;
+    color: var(--color-blanco);
+    font-size: 1.0em;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.location {
+    color: #aaaaaa;
+    font-size: 0.85em;
+}
+
+.date {
+    color: #cccccc;
+    font-size: 0.8em;
+}
+
+/* Bordes redondeados para las celdas de las filas */
+.calendar-table tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.calendar-table tbody tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+/* Contenedor del filtro */
+.filter-container {
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+/* Etiqueta */
+.filter-container label {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  color: #f1f1f1;
+}
+
+/* Select estilizado */
+.filter-container select {
+  background-color: #1a1a1a;  /* fondo oscuro */
+  color: #fff;                /* texto blanco */
+  border: 2px solid #e10600;  /* borde rojo Ferrari */
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover y focus */
+.filter-container select:hover,
+.filter-container select:focus {
+  background-color: #2a2a2a;
+  border-color: #ff1a1a;
+  outline: none;
+}

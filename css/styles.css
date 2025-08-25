@@ -1,0 +1,2158 @@
+/* Importar tipografías de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    /* Definición de variables CSS para los colores */
+    --color-rojo-ferrari: #CC0000;
+    --color-gris-oscuro: #333;
+    --color-gris-claro: #505050;
+    --color-negro: #000;
+    --color-blanco: #FFF;
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-blanco);
+    background-image: url(../images/bgc-index.jpg);
+    line-height: 1.6;
+    min-height: 100vh; /*100% del alto de la pantalla visible del navegador*/
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* oscurece el fondo */
+    z-index: -1;
+}
+
+/* Header */
+.header {
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-icon {
+    height: 70px;
+    width: auto;
+}
+
+/* Estilo para titulos y parrafos */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-rojo-ferrari);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--color-blanco);
+}
+
+/* --- Estilos para la página de inicio --- */
+/* Navigation */
+.nav-desktop {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-desktop li {
+    position: relative;
+}
+
+.nav-desktop a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: color 0.3s ease; /* Suave transición al pasar el ratón */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-desktop a:hover {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.nav-desktop a.active {
+    background-color: var(--color-gris-oscuro);
+    font-weight: bold;
+}
+
+.nav-desktop a.active:hover {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: none;
+    color: var(--color-blanco);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-rojo-ferrari);
+}
+
+/* Mobile menu */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-gris-oscuro);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-mobile ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.nav-mobile a {
+    display: block;
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile a:hover {
+    background-color: var(--color-rojo-ferrari);
+    padding-left: 3rem;
+}
+
+/* Main content */
+.main-content {
+    margin-top: 90px;
+    flex: 1;
+    padding: 2rem;
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(30, 30, 30, 0.6);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: var(--color-rojo-ferrari);
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-blanco);
+    margin-bottom: 2rem;
+}
+
+.racing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.racing-card {
+    background-color: var(--color-gris-claro);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.racing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Sección de Historias (Stories) --- */
+.stories-section {
+    padding: 3rem 0; /* Espacio arriba y abajo de la sección */
+    background-color: var(--color-gris-claro); /*Fondo ligeramente gris para la sección*/
+    margin-bottom: 3rem; /* Espacio antes de la siguiente sección */
+    border-radius: 20px; /* Bordes redondeados para la sección */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    overflow: hidden; /* Oculta el desbordamiento horizontal */
+}
+
+.stories-section .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-rojo-ferrari);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.stories-wrapper {
+    position: relative;
+    max-width: 1200px; /* Ancho máximo del contenedor de historias */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espaciado a los lados */
+}
+
+.stories-container {
+    display: flex; /* Para que las tarjetas se alineen horizontalmente */
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* Para un desplazamiento más suave y que se "enganche" a las tarjetas */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en dispositivos iOS */
+    padding-bottom: 20px; /* Espacio para la barra de desplazamiento */
+    gap: 15px; /* Espacio entre las tarjetas */
+    /* Estilizar la barra de desplazamiento (solo para navegadores WebKit como Chrome) */
+    scrollbar-width: thin; /* Para Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Para Firefox */
+}
+
+/* Ocultar la barra de desplazamiento por defecto para una UI más limpia */
+.stories-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.stories-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.stories-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.stories-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* --- Sección de Últimas Noticias --- */
+.latest-news-section {
+    padding: 3rem 0;
+    background-color: var(--color-gris-claro);
+    margin-bottom: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.latest-news-section .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-rojo-ferrari);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+/* --- Sección de Calendario Próximo --- */
+.upcoming-calendar-section {
+    padding: 3rem 0;
+    background-color: var(--color-gris-claro);
+    margin-bottom: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.upcoming-calendar-section .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-rojo-ferrari);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 10px; /* Alineación con la tabla */
+}
+
+.calendar-title {
+    font-size: 1.8rem;
+    color: var(--color-rojo-ferrari);
+    font-weight: bold;
+}
+
+.year-selector select {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.year-selector select:focus {
+    border-color: var(--color-rojo-ferrari) ;
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+}
+
+.calendar-table-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal en tablas grandes en móviles */
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.upcoming-calendar-section table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Asegura un ancho mínimo para la tabla en pantallas pequeñas */
+}
+
+.upcoming-calendar-section th,
+.upcoming-calendar-section td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.upcoming-calendar-section thead th {
+    background-color: #c6c8ca;
+    color: var(--color-gris-oscuro);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.upcoming-calendar-section tbody tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.upcoming-calendar-section tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.date-col {
+    width: 20%;
+    background-color: #e9ecef;
+    color: var(--color-gris-oscuro);
+    font-weight: bold;
+}
+
+.tag-f1-moto {
+    width: 20%;
+    background-color: #e9ecef;
+    color: var(--color-gris-oscuro);
+    font-weight: bold;
+}
+
+
+.race-col {
+    width: 45%;
+    background-color: #e9ecef;
+}
+
+.race-link {
+    color: var(--color-rojo-ferrari);
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* Para que ocupe toda la línea */
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.race-link:hover {
+    color: #8a0202;
+    text-decoration: underline;
+}
+
+.circuit-name {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-gris-oscuro);
+}
+
+.winner-col {
+    width: 20%;
+    font-weight: bold;
+    background-color: #e9ecef;
+    color: var(--color-gris-oscuro);
+}
+
+.tv-col {
+    width: 25%;
+    background-color: #e9ecef;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.tv-logos {
+  display: flex;
+  gap: 0.5rem;             /* Espacio entre logos */
+  align-items: center;     /* Centra verticalmente */
+  justify-content: center; /* Alinea logos a la izquierda (puedes usar center si quieres) */
+}
+
+.tv-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 0;
+  object-fit: cover; /* para llenar el círculo sin bordes blancos */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.tv-icon:hover {
+  transform: scale(1.1);
+}
+
+.view-full-calendar {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-full-calendar {
+    display: inline-block;
+    background-color: var(--color-rojo-ferrari);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-full-calendar:hover {
+    background-color: #8a0202; 
+    transform: translateY(-2px);
+}
+
+.news-grid {
+    display: grid;
+    /* Por defecto, 3 columnas si el espacio lo permite, mínimo 300px por columna */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas de noticias */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Espaciado a los lados */
+}
+
+.news-card {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Asegura que la imagen se recorte si es necesario */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Apila imagen y contenido */
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes de las noticias */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    border-bottom: 1px solid #eee; /* Separador sutil entre imagen y contenido */
+}
+
+.news-content {
+    padding: 20px;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el "Leer más" hacia abajo */
+}
+
+.news-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-gris-oscuro);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.news-description {
+    font-size: 0.95rem;
+    color: var(--color-negro);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Permite que la descripción ocupe espacio antes del botón */
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--color-rojo-ferrari);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-top: 10px; /* Espacio superior */
+}
+
+.read-more:hover {
+    color: #8a0202;
+    text-decoration: underline;
+}
+
+.story-card {
+    flex: 0 0 auto; /* No crecer, no encoger, tamaño basado en contenido */
+    width: 200px; /* Ancho de cada tarjeta */
+    height: 300px; /* Alto de cada tarjeta */
+    background-color: #fff; /* Fondo blanco para la tarjeta */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+    position: relative; /* Para posicionar el tag "NEW" */
+    scroll-snap-align: start; /* Ayuda al scroll-snap */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinea el contenido de texto abajo */
+}
+
+.story-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.story-image {
+    width: 100%;
+    height: 100%; /* La imagen ocupa todo el espacio de la tarjeta */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio sin distorsionar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Detrás del tag y el texto */
+}
+
+.story-info {
+    position: relative;
+    z-index: 2; /* Por encima de la imagen */
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* Degradado oscuro en la parte inferior */
+    padding: 20px 15px 15px; /* Espaciado interno */
+    color: white;
+    text-align: left;
+    height: 100%; /* Para que el gradiente ocupe todo el alto */
+    display: flex;
+    align-items: flex-end; /* Alinea la descripción al fondo */
+}
+
+.story-description {
+    font-size: 0.95rem;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.story-new-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--color-rojo-ferrari); /* Color rojo */
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 3; /* Asegura que esté encima de todo */
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* Flechas de navegación (opcional, con JS para el scroll si no te gusta el scroll manual) */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+    color: white;
+    padding: 3rem 2rem 1rem;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #ccc;
+    text-align: center;
+
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+    text-align: center;
+}
+
+.footer-section a:hover {
+    color: #8a0202;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-gris-oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0;
+    font-size: 0; /* evita espacios invisibles dentro */
+}
+
+.social-link i {
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- Estilos para la página de noticias --- */
+.main-notice {
+  margin-top: 90px;
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+}
+
+.main-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: var(--color-rojo-ferrari);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.container-notice {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: rgba(30, 30, 30, 0.6);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+.description-notice {
+  background-color: var(--color-gris-claro);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.section-notice {
+  flex: 1 1 0;
+  background-color: var(--color-gris-claro);
+  /*background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);*/
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-height: 100%;      /* Limita la altura al contenedor */
+  overflow-y: auto;      /* Permite scroll si el contenido se pasa */
+}
+
+.img-f1 {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.img-mgp {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.aside-notice {
+  width: 100%;
+  max-width: 400px;
+  background-color: #e9ecef;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  flex-shrink: 1;
+  height: 1540px;
+  overflow-y: auto;
+}
+
+.aside-title {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--color-rojo-ferrari);
+  padding-bottom: 5px;
+}
+
+.notice {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.notice:last-child {
+  border-bottom: none;
+}
+
+.notice img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.content-notice {
+  flex: 1;
+}
+
+.category {
+  font-weight: bold;
+  text-align: end;
+  color: var(--color-gris-oscuro);
+  font-size: 0.65rem;
+  margin-bottom: 5px;
+}
+
+.category-motogp {
+  font-weight: bold;
+  text-align: end;
+  color: var(--color-gris-oscuro);
+  font-size: 0.65rem;
+  margin-bottom: 5px;
+}
+
+.title-notice {
+  color: var(--color-negro);
+  font-size: 1rem;
+  margin: 0 0 5px;
+}
+
+.date-notice {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* --- Estilos para la Página de apuestas y tienda --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.modal-content .close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content p {
+    color: var(--color-gris-oscuro);
+}
+
+.modal-content ul {
+    color: var(--color-gris-oscuro);
+    list-style: none;
+}
+
+.modal-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: var(--color-rojo-ferrari);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.modal-btn:hover {
+  background-color: #8a0202
+}
+
+/* --- Estilos para la Página de apuestas luego de inicar sesion --- */
+.container2 {
+    width: 90%;
+    max-width: 650px;
+    margin: 120px auto 40px; /* margen superior más grande */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+.formulario input,
+.formulario select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #007bff; /* Azul */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+
+.formulario button {
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: var(--color-rojo-ferrari);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.formulario button:hover {
+    background-color: #8a0202; /* Rojo más oscuro */
+    transform: translateY(-2px);
+}
+
+#estado-apuesta {
+    margin-top: 30px;
+    background-color: #e6ffe6;
+    padding: 20px;
+    border: 1px solid #00b300;
+    border-radius: 10px;
+}
+
+#estado-apuesta p {
+    color: #444; /* Gris medio para buena visibilidad */
+}
+
+#estado-apuesta span {
+    color: #555; /* Valores en gris */
+}
+
+.oculto {
+    display: none;
+}
+
+/* --- Estilo general para las secciones de apuestas --- */
+.betting-header {
+  text-align: center;
+  margin: 60px auto 40px;
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.betting-header h1 {
+  font-size: 2rem;
+  color: var(--color-rojo-ferrari);
+}
+
+.betting-header p {
+  color: var(--color-blanco);
+  font-size: 1rem;
+}
+
+/* Info del usuario */
+.user-info {
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.user-info h2 {
+  margin-bottom: 15px;
+  color: var(--color-rojo-ferrari);
+}
+
+.user-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stat-item {
+  flex: 1;
+  background: #f9f9f9;
+  color: #444;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.stat-item p {
+    color: #0e0b0b7e;
+}    
+
+.countdown p {
+    color: #0e0b0b7e;
+}  
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--color-rojo-ferrari);
+}
+
+.betting-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.betting-section {
+  background-color: #f5f2f2;
+  color: #444;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.section-title2 {
+  font-size: 1.8rem;
+  color: var(--color-rojo-ferrari);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Selects y opciones */
+.race-select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  color: var(--color-blanco);
+  background-color: rgba(30, 30, 30, 0.6);
+  margin-bottom: 2rem;
+}
+.betting-option {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-bottom: 0.5rem; /* espacio entre opciones */
+}
+.betting-option:hover {
+  border-color: var(--color-rojo-ferrari);
+  transform: translateY(-2px);
+}
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.odds {
+  color: var(--color-rojo-ferrari);
+}
+.bet-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+.bet-input:focus {
+  border-color: var(--color-rojo-ferrari);
+  outline: none;
+}
+
+/* Botones */
+.place-bet-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-rojo-ferrari);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.place-bet-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+}
+.place-bet-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Historial */
+.betting-history {
+  background-color: #f5f2f2;
+  color: #444;
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.history-table th,
+.history-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}
+.history-table th {
+  background: rgba(225, 6, 0, 0.1);
+  color: var(--color-rojo-ferrari);
+}
+.status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.status.pending { color: #FF9800; background: rgba(255, 152, 0, 0.2); }
+.status.won { color: #4CAF50; background: rgba(76, 175, 80, 0.2); }
+.status.lost { color: #f44336; background: rgba(244, 67, 54, 0.2); }
+
+
+/* Estilos para la sección principal de recompensas */
+.rewards-section {
+    background-color: #f5f2f2;
+    color: #444;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--color-rojo-ferrari);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Estilos para el contenedor de la trivia */
+.trivia-container {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.trivia-container:hover {
+    border-color: var(--color-rojo-ferrari);
+    transform: translateY(-2px);
+}
+
+.trivia-container p {
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para el botón "Iniciar Trivia" */
+#iniciarTriviaBtn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-rojo-ferrari);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#iniciarTriviaBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+}
+
+/* Estilos para la pregunta y las opciones de la trivia */
+#trivia {
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+.question {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.options-list {
+    list-style: none;
+    padding: 0;
+}
+
+.option {
+    background: #e9e9e9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.option:hover {
+    background-color: #ddd;
+}
+
+.option.correct {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.option.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Estilos para los mensajes de resultado, logros y bonificación */
+#resultado, #logros, #bonificacion {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#resultado {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+}
+
+#logros {
+    background-color: #fff3e0;
+    border: 1px solid #ffcc80;
+}
+
+#bonificacion {
+    background-color: #e8f5e9;
+    border: 1px solid #a5d6a7;
+}
+
+@media (max-width: 768px) {
+    .betting-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* --- Estilos para la página de mi cuenta --- */
+/* Ajuste del cuerpo para la página de cuenta si es diferente */
+body:not(.account-page-body) {
+    background-image: url(../images/bgc-index.jpg);
+    display: flex; /* Para asegurar que el footer se quede abajo */
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenedor principal de los formularios */
+.account-container {
+    max-width: 500px; /* Ancho máximo para el formulario */
+    margin: 90px auto 3rem auto; /* Margen superior para el header fijo, centrado */
+    padding: 2.5rem;
+    background-color: #e9ecef; /* Fondo casi blanco con transparencia */
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Selector de formularios (Login/Registrar) */
+.form-switcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #e9ecef;
+}
+
+.switch-btn {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.switch-btn.active {
+    background-color: var(--color-rojo-ferrari);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.switch-btn:hover:not(.active) {
+    background-color: #dbe4eb;
+}
+
+/* Estilos para los formularios */
+.account-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.account-form.hidden {
+    display: none; /* Oculta los formularios inactivos */
+    opacity: 0;
+}
+
+.account-form p {
+    color: var(--color-gris-oscuro);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-gris-oscuro);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fcfcfc;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:focus {
+    border-color: var(--color-gris-oscuro);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-rojo-ferrari);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #8a0202;
+    transform: translateY(-2px);
+}
+
+.forgot-password-link,
+.back-to-login-link {
+    display: block;
+    margin-top: 1rem;
+    color: var(--color-gris-oscuro);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover,
+.back-to-login-link:hover {
+    color: var(--color-negro);
+    text-decoration: underline;
+}
+
+/* Estilos para el panel de usuario */
+.user-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  max-width: 800px;
+  margin: 40px auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.user-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.user-panel h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--color-rojo-ferrari);
+  font-size: 2.2rem;
+  margin-bottom: 5px;
+}
+
+.user-info-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-gris-oscuro);
+}
+
+.profile-icon {
+  font-size: 4rem;
+  color: var(--color-rojo-ferrari);
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data p {
+  color: var(--color-blanco);
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+.panel-section {
+  background: var(--color-gris-oscuro);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.panel-section h3 {
+  color: var(--color-rojo-ferrari);
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.panel-section p {
+  color: var(--color-blanco);
+  font-size: 0.95rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Estilos para el acordeón en el panel de usuario */
+.accordion-container {
+  cursor: pointer;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-gris-claro);
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: var(--color-gris-oscuro);
+}
+
+.accordion-header h3 {
+  margin: 0;
+  color: var(--color-rojo-ferrari);
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  color: var(--color-blanco);
+  font-size: 1.2rem;
+}
+
+.accordion-container.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 20px;
+  background: var(--color-gris-claro);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos de la tabla de historial (copiados de apuestas.html) */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.85rem;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-gris-oscuro);
+}
+
+.history-table th {
+  background: #333;
+  color: var(--color-blanco);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* Estilos para los estados */
+.status {
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status.won {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.status.pending {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.status.lost {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Responsive*/
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-mobile.active {
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .header-container {
+        padding: 1rem;
+    }
+
+    .container {
+        margin: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .racing-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .stories-section {
+        padding: 2rem 0;
+    }
+
+    .stories-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stories-wrapper {
+        padding: 0 10px;
+    }
+
+    .story-card {
+        width: 180px; /* Un poco más pequeñas en móvil */
+        height: 270px;
+    }
+
+    .story-description {
+        font-size: 0.9rem;
+    }
+
+    .scroll-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .latest-news-section {
+        padding: 2rem 0;
+    }
+
+    .latest-news-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        padding: 0 15px;
+    }
+
+    .news-card {
+        margin-bottom: 20px; /* Espacio entre tarjetas apiladas */
+    }
+
+    .news-image {
+        height: 180px; /* Altura un poco menor en móvil */
+    }
+
+    .news-title {
+        font-size: 1.2rem;
+    }
+
+    .news-description {
+        font-size: 0.9rem;
+    }
+
+    .upcoming-calendar-section {
+        padding: 2rem 0;
+    }
+
+    .upcoming-calendar-section .section-title {
+        font-family: 'Orbitron', sans-serif; /* Tipografía para títulos */
+        color: var(--color-rojo-ferrari);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 0 15px;
+    }
+
+    .calendar-title {
+        font-size: 1.5rem;
+    }
+
+    .year-selector {
+        width: 100%;
+    }
+
+    .year-selector select {
+        width: 100%;
+    }
+
+    .upcoming-calendar-section th,
+    .upcoming-calendar-section td {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .race-link {
+        font-size: 0.95rem;
+    }
+
+    .circuit-name {
+        font-size: 0.75rem;
+    }
+
+    .btn-full-calendar {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        margin: 0.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .stories-section {
+        padding: 1.5rem 0;
+    }
+
+    .stories-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .story-card {
+        width: 150px; /* Aún más pequeñas en pantallas muy pequeñas */
+        height: 225px;
+    }
+
+    .story-description {
+        font-size: 0.85rem;
+    }
+
+    .latest-news-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .news-image {
+        height: 150px;
+    }
+
+    .upcoming-calendar-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .calendar-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Responsividad para Pagina de noticias */
+@media (max-width: 768px) {
+  .container-notice {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .aside-notice {
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    overflow-y: visible;
+  }
+
+  .section-notice {
+    max-height: none;
+    overflow: visible;
+    padding: 1.5rem;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .aside-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .notice img {
+    width: 70px;
+    height: 50px;
+  }
+
+  .title-notice {
+    font-size: 0.95rem;
+  }
+
+  .date-notice {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-notice {
+    padding: 1rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .section-notice {
+    padding: 1rem;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .description-notice {
+    padding: 1rem;
+  }
+
+  .aside-notice {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    overflow-y: visible;
+  }
+
+  .aside-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .notice {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .notice img {
+    width: 100%;
+    height: auto;
+  }
+
+  .title-notice {
+    font-size: 0.9rem;
+  }
+
+  .date-notice {
+    font-size: 0.7rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsividad para la página de cuenta */
+@media (max-width: 768px) {
+    .account-container {
+        margin-top: 70px auto 2rem auto; /* Ajuste para el header más pequeño en móvil */
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .form-switcher {
+        flex-direction: column; /* Apila los botones del switcher */
+    }
+
+    .switch-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .account-form h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-group input {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .account-container {
+        margin: 60px 1rem 1.5rem 1rem; /* Más margen a los lados en pantallas muy pequeñas */
+        padding: 1.2rem;
+    }
+    .account-form h2 {
+        font-size: 1.6rem;
+    }
+    .form-group label {
+        font-size: 0.9rem;
+    }
+}
+/* --- Estilos para la página de productos (tienda.html) --- */
+
+.product-page-container {
+    padding-top: 100px; /* Ajusta según la altura de tu header fijo */
+    text-align: center;
+    max-width: 1200px; /* Ancho máximo para el contenido principal */
+    margin: 0 auto;
+    padding-bottom: 50px; /* Espacio antes del footer */
+}
+
+.product-page-container .section-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.product-page-container .section-subtitle {
+    color: var(--color-blanco);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.product-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Para que los filtros se ajusten en pantallas pequeñas */
+}
+
+.filter-select,
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 5px;
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus,
+.search-input:focus {
+    border-color: var(--color-rojo-ferrari);
+    box-shadow: 0 0 8px rgba(var(--color-rojo-ferrari), 0.5);
+}
+
+.filter-select option {
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 columnas en pantallas grandes, ajusta automáticamente */
+    gap: 30px; /* Espacio entre las tarjetas de producto */
+    justify-content: center;
+    padding: 0 20px; /* Pequeño padding lateral para no pegar a los bordes */
+}
+
+.product-card {
+    background-color: var(--color-gris-oscuro);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px var(--color-rojo-ferrari);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio */
+    border-bottom: 2px solid var(--color-negro);
+}
+
+.product-info {
+    padding: 20px;
+    flex-grow: 1; /* Permite que este div ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para empujar el botón al final si hay espacio */
+}
+
+.product-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-rojo-ferrari);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-align: left; /* Alinea los títulos de producto a la izquierda */
+}
+
+.product-description {
+    color: var(--color-blanco);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: left;
+    flex-grow: 1; /* Permite que la descripción crezca si es necesario */
+}
+
+.product-price {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-blanco);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.add-to-cart-btn {
+    background-color: var(--color-rojo-ferrari);
+    color: var(--color-blanco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #FF1A1A; /* Un rojo un poco más brillante al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn i {
+    font-size: 1.1rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 columnas en tablets */
+    }
+
+    .product-page-container {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        padding: 0 15px;
+    }
+
+    .product-page-container .section-title {
+        font-size: 2rem;
+    }
+
+    .filter-select,
+    .search-input {
+        width: 100%;
+    }
+}

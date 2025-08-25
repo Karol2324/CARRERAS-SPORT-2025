@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta - Carreras Sport</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body class="account-page-body">
+  <header class="header">
+    <section class="header-container">
+      <a href="index.html" class="logo">
+        <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+      </a>
+      
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="./index.html"> Inicio</a></li>
+          <li><a href="./noticias.html"> Noticias</a></li>
+          <li><a href="./calendario.html"> Calendario</a></li>
+          <li><a href="./apuestas.html"> Apuestas</a></li>
+          <li><a href="./tienda.html"> Tienda</a></li>
+          <li id="account-link"><a href="./cuenta.html" id="cuentaLink" class="active">Mi cuenta</a></li>
+          <li id="logout-item" style="display: none;">
+            <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+          </li>
+        </ul>
+        
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+      </nav>
+    </section>
+        
+    <section class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html"> Inicio</a></li>
+        <li><a href="./noticias.html"> Noticias</a></li>
+        <li><a href="./calendario.html"> Calendario</a></li>
+        <li><a href="./apuestas.html"> Apuestas</a></li>
+        <li><a href="./tienda.html"> Tienda</a></li>
+        <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+        <li id="logout-item" style="display: none;">
+          <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+        </li>
+      </ul>
+    </section>
+  </header>
+
+  <!-- Main account -->
+  <main class="main-content">
+    <div id="userPanel" class="user-panel hidden">
+    <div class="user-info-section">
+      <div class="profile-info-content">
+        <i class="fa-solid fa-user-circle profile-icon"></i>
+        <div class="user-data">
+          <h2 id="userNamePanel"></h2>
+          <p id="userEmailPanel"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-section accordion-container">
+  <div class="accordion-header" id="historyAccordionHeader">
+    <h3>Historial de Apuestas</h3>
+    <i class="fas fa-chevron-down accordion-icon"></i>
+  </div>
+  <div class="accordion-content hidden" id="historyAccordionContent">
+    <p>Revisa tus apuestas pasadas y el estado de las activas.</p>
+    <div class="betting-history">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Carrera</th>
+            <th>Apuesta</th>
+            <th>Cantidad</th>
+            <th>Cuota</th>
+            <th>Estado</th>
+            <th>Ganancia/Pérdida</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody">
+          <tr>
+            <td>2025-07-20</td>
+            <td>GP Hungría F1</td>
+            <td>Verstappen Ganador</td>
+            <td>$50.00</td>
+            <td>2.50</td>
+            <td><span class="status won">Ganada</span></td>
+            <td style="color: #4CAF50;">+$125.00</td>
+          </tr>
+          <tr>
+            <td>2025-07-18</td>
+            <td>GP Austria MotoGP</td>
+            <td>Bagnaia Podio</td>
+            <td>$30.00</td>
+            <td>1.80</td>
+            <td><span class="status pending">Pendiente</span></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2025-07-15</td>
+            <td>GP Gran Bretaña F1</td>
+            <td>Norris Ganador</td>
+            <td>$25.00</td>
+            <td>3.20</td>
+            <td><span class="status lost">Perdida</span></td>
+            <td style="color: #f44336;">-$25.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="panel-section accordion-container">
+    <div class="accordion-header" id="purchasesAccordionHeader">
+        <h3>Mis Compras</h3>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+    </div>
+    <div class="accordion-content hidden" id="purchasesAccordionContent">
+        <p>Explora tu historial de compras en nuestra tienda oficial.</p>
+        <div class="betting-history">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Artículo</th>
+                        <th>Monto</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="purchaseTableBody">
+                    <tr>
+                        <td>2025-08-10</td>
+                        <td>Camiseta F1</td>
+                        <td>$55.00</td>
+                        <td><span class="status pending">Enviada</span></td> </tr>
+                    </tr>
+                    <tr>
+                        <td>2025-07-25</td>
+                        <td>Gorra F1</td>
+                        <td>$30.00</td>
+                        <td><span class="status won">Entregada</span></td> </tr>
+                    </tr>
+                    <tr>
+                        <td>2025-07-05</td>
+                        <td>Sudadera MotoGP</td>
+                        <td>$80.00</td>
+                        <td><span class="status won">Entregada</span></td> </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  </div>
+
+    <section class="container account-container" id="formsContainer">
+      <article class="form-switcher">
+        <button class="switch-btn active" data-form="login">Iniciar Sesión</button>
+        <button class="switch-btn" data-form="register">Registrarse</button>
+      </article>
+      
+      <!-- Login -->
+      <form id="loginForm" class="account-form">
+        <article class="form-group">
+          <label for="loginEmail">Correo electrónico</label>
+          <input type="email" id="loginEmail" name="email" required>
+        </article>
+        <article class="form-group">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" name="password" required>
+        </article>
+        <button type="submit" class="submit-btn">Ingresar</button>
+        <a href="#" class="forgot-password-link" data-form="recover">¿Olvidaste tu contraseña?</a>
+      </form>
+
+      <!-- Register -->
+      <form id="registerForm" class="account-form hidden">
+        <article class="form-group">
+          <label for="registerName">Nombre de usuario</label>
+          <input type="text" id="registerName" name="username" required>
+        </article>
+        <article class="form-group">
+          <label for="registerEmail">Correo electrónico</label>
+          <input type="email" id="registerEmail" name="email" required>
+        </article>
+        <article class="form-group">
+          <label for="registerPassword">Contraseña</label>
+          <input type="password" id="registerPassword" name="password" required>
+        </article>
+        <article class="form-group">
+          <label for="confirmPassword">Confirmar contraseña</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </article>
+        <button type="submit" class="submit-btn">Crear cuenta</button>
+      </form>
+
+      <!-- Password recovery -->
+      <form id="recoverPasswordForm" class="account-form hidden">
+        <h2>Recuperar Contraseña</h2>
+        <p>Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+        <article class="form-group">
+          <label for="recoverEmail">Correo Electrónico</label>
+          <input type="email" id="recoverEmail" name="email" required>
+        </article>
+        <button type="submit" class="submit-btn">Enviar Enlace</button>
+        <a href="#" class="back-to-login-link" data-form="login">Volver a Iniciar Sesión</a>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <section class="footer-container">
+      <section class="footer-content">
+        <article class="footer-section">
+          <h3>Carreras Sport</h3>
+          <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+          <article class="social-links">
+            <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+          </article>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Navegación</h3>
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./noticias.html">Noticias</a></li>
+            <li><a href="./calendario.html">Calendario</a></li>
+            <li><a href="./apuestas.html">Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda</a></li>
+            <li><a href="./cuenta.html">Mi cuenta</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+            <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda Oficial</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Soporte</h3>
+          <ul>
+            <li><a href="Centro-de-Ayuda.html">Centro de Ayuda</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="TerminosyCondiciones.html">Términos y Condiciones</a></li>
+            <li><a href="Politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="Cookies.html">Cookies</a></li>
+          </ul>
+        </article>
+      </section>
+      
+      <section class="footer-bottom">
+        <p>&copy; 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+      </section>
+    </section>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script type="module" src="js/registro.js"></script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Últimas noticias, calendario, apuestas y tienda de productos exclusivos de Fórmula 1 y MotoGP.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carreras Sport - F1 & MotoGP</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo5.png" type="image/x-icon">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <section class="header-container">
+      <a href="index.html" class="logo">
+        <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+      </a>
+        
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="./index.html" class="active"> Inicio</a></li>
+          <li><a href="./noticias.html"> Noticias</a></li>
+          <li><a href="./calendario.html"> Calendario</a></li>
+          <li><a href="./apuestas.html"> Apuestas</a></li>
+          <li><a href="./tienda.html"> Tienda</a></li>
+          <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+          <li id="logout-item" style="display: none;">
+            <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+          </li>
+        </ul>
+          
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+      </nav>
+    </section>
+      
+    <section class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="./index.html" class="active"> Inicio</a></li>
+        <li><a href="./noticias.html"> Noticias</a></li>
+        <li><a href="./calendario.html"> Calendario</a></li>
+        <li><a href="./apuestas.html"> Apuestas</a></li>
+        <li><a href="./tienda.html"> Tienda</a></li>
+        <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+        <li id="logout-item" style="display: none;">
+          <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+        </li>
+      </ul>
+    </section>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="container">
+      <section class="hero-section">
+        <h1 class="hero-title">CARRERAS SPORT</h1>
+        <p class="hero-subtitle">Tu destino definitivo para Fórmula 1 y MotoGP</p>
+      </section>
+      
+      <section class="racing-cards">
+        <article class="racing-card f1">
+          <h2 class="card-title">Fórmula 1</h2>
+          <p class="card-description">Sigue toda la emoción de la Fórmula 1, desde las clasificaciones hasta la bandera a cuadros. Noticias exclusivas, análisis técnicos y contenido premium.</p>
+        </article>
+        
+        <article class="racing-card motogp">
+          <h2 class="card-title">MotoGP</h2>
+          <p class="card-description">Vive la adrenalina del MotoGP con cobertura completa de todas las categorías. Análisis de pilotos, equipos y las mejores carreras del mundial.</p>
+        </article>
+      </section>
+      
+      <section class="stories-section">
+        <h2 class="section-title">DESTACADOS</h2>
+        <section class="stories-wrapper">
+          <section class="stories-container">
+            <article class="story-card">
+              <a href="https://www.youtube.com/watch?v=Zr3Vf8iW2no" class="story-new-tag">NEW</a>
+              <img src="./images/1.jpeg" alt="Historia 1" class="story-image">
+              <article class="story-info">
+                <p class="story-description">Best Onboards: Nigel Mansell</p>
+              </article>
+            </article>
+            
+            <article class="story-card">
+              <a href="https://www.youtube.com/watch?v=EUDgm8JnXhs" class="story-new-tag">NEW</a>
+              <img src="./images/2.jpeg" alt="Historia 2" class="story-image">
+              <article class="story-info">
+                <p class="story-description">Winning Moments</p>
+              </article>
+            </article>
+
+            <article class="story-card">
+              <a href="https://www.youtube.com/watch?v=i5Tp3LU5jqg" class="story-new-tag">NEW</a>
+              <img src="./images/3.jpeg" alt="Historia 3" class="story-image">
+              <article class="story-info">
+                <p class="story-description">Great Britain 2025 - Race Highlights</p>
+              </article>
+            </article>
+
+            <article class="story-card">
+              <a href="https://www.formula1.com/en/latest/article/join-our-f1-fantasy-mclaren-mini-league-for-a-chance-to-win-a-tour-of.1jGupv7FpUg9nCctrbubGR" class="story-new-tag">NEW</a>
+              <img src="./images/4.jpeg" alt="Historia 4" class="story-image">
+              <article class="story-info">
+                <p class="story-description">F1 Fantasy - Join The McLaren Mini-League!</p>
+              </article>
+            </article>
+
+            <article class="story-card">
+              <a href="https://www.youtube.com/watch?v=Wj6DHG0X66k" class="story-new-tag">NEW</a>
+              <img src="./images/5.jpeg" alt="Historia 5" class="story-image">
+              <article class="story-info">
+                <p class="story-description">Austria 2025 - Race Highlights</p>
+              </article>
+            </article>
+          </section>
+          
+          <button class="scroll-arrow left-arrow" aria-label="Anterior">←</button>
+          <button class="scroll-arrow right-arrow" aria-label="Siguiente">→</button>
+        </section>
+      </section>
+      
+      <section class="latest-news-section">
+        <h2 class="section-title">ÚLTIMAS NOTICIAS</h2>
+        <section class="news-grid">
+          <article class="news-card">
+            <img src="./images/photo1.jpg" alt="Noticia Fórmula 1" class="news-image">
+            <article class="news-content">
+              <h3 class="news-title">Hamilton rompe récords en el Gran Premio de Mónaco</h3>
+              <p class="news-description">Lewis Hamilton asegura su victoria número 104, consolidando su legado en la F1. Análisis detallado de la carrera y sus implicaciones para el campeonato.</p>
+                <a href="https://www.formula1.com/en/latest/article/breaking-hamilton-hit-with-three-place-monaco-gp-grid-drop-for-blocking.6YISvHjNEfiCzcm1CLtiq4" class="read-more">Leer más &rarr;</a>
+            </article>
+          </article>
+
+          <article class="news-card">
+            <img src="./images/photo2.jpg" alt="Noticia MotoGP" class="news-image">
+            <article class="news-content">
+              <h3 class="news-title">Quartararo domina en Jerez: La batalla por el título se intensifica</h3>
+              <p class="news-description">Fabio Quartararo demuestra su superioridad en el circuito de Jerez, dejando claro que es un contendiente serio al título de MotoGP de este año.</p>
+              <a href="https://lat.motorsport.com/motogp/news/motogp-quartararo-declaraciones-caida-sprint-jerez-2025/10717205/" class="read-more">Leer más &rarr;</a>
+            </article>
+          </article>
+
+          <article class="news-card">
+            <img src="./images/photo3.jpg" alt="Noticia Curiosa" class="news-image">
+            <article class="news-content">
+              <h3 class="news-title">La nueva tecnología de neumáticos que podría cambiarlo todo en la pista</h3>
+              <p class="news-description">Exploramos los avances en el desarrollo de neumáticos que prometen revolucionar el rendimiento y la estrategia en las próximas temporadas.</p>
+              <a href="https://www.bridgestoneamericas.com/es_US/company/safety/tires-101/tire-technology" class="read-more">Leer más &rarr;</a>
+            </article>
+          </article>
+        </section>
+      </section>
+      
+      <section class="upcoming-calendar-section">
+        <h2 class="section-title">PRÓXIMAS CARRERAS</h2>
+          <article class="calendar-header">
+            <h3 class="calendar-title">Calendario F1 - 2025</h3>
+            <article class="year-selector">
+              <select id="calendarYearSelect">
+                <option value="2024">2024</option>
+                <option value="2025" selected>2025</option>
+                <option value="2026">2026</option>
+              </select>
+            </article>
+          </article>
+          
+          <article class="calendar-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>FECHAS</th>
+                  <th>CATEGORIA</th>
+                  <th>CARRERA</th>
+                  <th>GANADOR/LARGADAS</th>
+                  <th>TV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="date-col">13 - 15 de Mar.</td>
+                  <td class="tag-f1-moto">Fórmula 1</td>
+                  <td class="race-col">
+                    <a href="#" class="race-link">Louis Vuitton Australian GP</a>
+                    <span class="circuit-name">Circuito Grand Prix Melbourne</span>
+                  </td>
+                  <td class="winner-col">L. Norris</td>
+                  <td class="tv-col">
+                    <article class="tv-logos">
+                      <img src="./images/logo-star.jpg" alt="Star-Plus" class="tv-icon">
+                    </article>
+                  </td> 
+                </tr>
+                <tr>
+                  <td class="date-col">9 – 11 May.</td>
+                  <td class="tag-f1-moto">MotoGP</td>
+                  <td class="race-col">
+                    <a href="#" class="race-link">Gran Premio de Francia</a>
+                    <span class="circuit-name">Le Mans</span>
+                  </td>
+                  <td class="winner-col">J. Zarco</td>
+                  <td class="tv-col">
+                    <article class="tv-logos">
+                      <img src="./images/logo-star.jpg" alt="Star-Plus" class="tv-icon">
+                      <img src="./images/logo-espn.png" alt="ESPN" class="tv-icon">
+                    </article>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="date-col">11 – 13 Abr.</td>
+                  <td class="tag-f1-moto">MotoGP</td>
+                  <td class="race-col">
+                    <a href="#" class="race-link">Gran Premio de Catar</a>
+                    <span class="circuit-name">Losail</span>
+                  </td>
+                  <td class="winner-col">M. Márquez</td>
+                  <td class="tv-col">
+                    <article class="tv-logos">
+                      <img src="./images/logo-espn.png" alt="ESPN" class="tv-icon">
+                    </article>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="date-col">11 - 13 de Abr.</td>
+                  <td class="tag-f1-moto">Fórmula 1</td>
+                  <td class="race-col">
+                    <a href="#" class="race-link">Gulf Air Bahrain GP</a>
+                    <span class="circuit-name">Bahrain International Circuit</span>
+                  </td>
+                  <td class="winner-col">O. Piastri</td>
+                  <td class="tv-col">
+                    <article class="tv-logos">
+                      <img src="./images/logo-espn.png" alt="ESPN" class="tv-icon">
+                    </article>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="view-full-calendar">
+            <a href="#" class="btn-full-calendar">Ver Calendario Completo &rarr;</a>
+          </article>
+        </section>
+
+        <section class="features-preview">
+          <h2>¿Qué encontrarás aquí?</h2>
+          <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+            <article>
+              <h3>Noticias</h3>
+              <p>Últimas noticias y análisis</p>
+            </article>
+            <article>
+              <h3>Apuestas</h3>
+              <p>Predicciones y premios</p>
+            </article>
+            <article>
+              <h3>Tienda</h3>
+              <p>Productos oficiales</p>
+            </article>
+            <article>
+              <h3>Premium</h3>
+              <p>Contenido exclusivo</p>
+            </article>
+          </section>
+        </section>
+      </section>
+    </main>
+      
+  <!-- Footer -->
+  <footer class="footer">
+    <section class="footer-container">
+      <section class="footer-content">
+        <article class="footer-section">
+          <h3>Carreras Sport</h3>
+          <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+          <article class="social-links">
+            <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+          </article>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Navegación</h3>
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./noticias.html">Noticias</a></li>
+            <li><a href="./calendario.html">Calendario</a></li>
+            <li><a href="./apuestas.html">Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda</a></li>
+            <li><a href="./cuenta.html">Mi cuenta</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+            <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda Oficial</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Soporte</h3>
+          <ul>
+            <li><a href="Centro-de-Ayuda.html">Centro de Ayuda</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="TerminosyCondiciones.html">Términos y Condiciones</a></li>
+            <li><a href="Politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="Cookies.html">Cookies</a></li>
+          </ul>
+        </article>
+      </section>
+      
+      <section class="footer-bottom">
+        <p>&copy; 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+      </section>
+    </section>
+  </footer>
+    <section id="cookie-banner" style="display: none;">
+  <p>Este sitio utiliza cookies para mejorar la experiencia. Al continuar, aceptas nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
+  <button id="accept-cookies">Aceptar</button>
+</section>
+  <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
+</body>
+</html>

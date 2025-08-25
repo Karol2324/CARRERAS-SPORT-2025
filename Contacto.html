@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carreras Sport - F1 & MotoGP</title>
+  <link rel="stylesheet" href="css/cookiestyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo5.png" type="image/x-icon">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <section class="header-container">
+      <a href="index.html" class="logo">
+        <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+      </a>
+        
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="./index.html" class="active"> Inicio</a></li>
+          <li><a href="./noticias.html"> Noticias</a></li>
+          <li><a href="./calendario.html"> Calendario</a></li>
+          <li><a href="./apuestas.html"> Apuestas</a></li>
+          <li><a href="./tienda.html"> Tienda</a></li>
+          <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+          <li id="logout-item" style="display: none;">
+            <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+          </li>
+        </ul>
+          
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+      </nav>
+    </section>
+      
+    <section class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="./index.html" class="active"> Inicio</a></li>
+        <li><a href="./noticias.html"> Noticias</a></li>
+        <li><a href="./calendario.html"> Calendario</a></li>
+        <li><a href="./apuestas.html"> Apuestas</a></li>
+        <li><a href="./tienda.html"> Tienda</a></li>
+        <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+        <li id="logout-item" style="display: none;">
+          <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+        </li>
+      </ul>
+    </section>
+  </header>
+  <main class="main-content">
+  <section class="contact-section">
+    <h1>Contáctanos</h1>
+    <p>¿Tienes preguntas, sugerencias o necesitas ayuda? Estamos aquí para escucharte.</p>
+    
+    <section class="contact-form-container">
+      <form action="/submit-contact-form" method="post" class="contact-form">
+        <section class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required>
+        </section>
+        <section class="form-group">
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" required>
+        </section>
+        <section class="form-group">
+          <label for="subject">Asunto:</label>
+          <input type="text" id="subject" name="subject" required>
+        </section>
+        <section class="form-group">
+          <label for="message">Mensaje:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </section>
+        <button type="submit" class="submit-button">Enviar Mensaje</button>
+      </form>
+    </section>
+  </section>
+</main>
+  <!-- Footer -->
+  <footer class="footer">
+    <section class="footer-container">
+      <section class="footer-content">
+        <article class="footer-section">
+          <h3>Carreras Sport</h3>
+          <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+          <article class="social-links">
+            <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+          </article>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Navegación</h3>
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./noticias.html">Noticias</a></li>
+            <li><a href="./calendario.html">Calendario</a></li>
+            <li><a href="./apuestas.html">Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda</a></li>
+            <li><a href="./cuenta.html">Mi cuenta</a></li>
+          </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+            <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+            <li><a href="./tienda.html">Tienda Oficial</a></li>
+            </ul>
+        </article>
+              
+        <article class="footer-section">
+          <h3>Soporte</h3>
+          <ul>
+            <li><a href="Centro-de-Ayuda.html">Centro de Ayuda</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="TerminosyCondiciones.html">Términos y Condiciones</a></li>
+            <li><a href="Politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="Cookies.html">Cookies</a></li>
+          </ul>
+        </article>
+      </section>
+      
+      <section class="footer-bottom">
+        <p>&copy; 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+      </section>
+    </section>
+  </footer>
+    <section id="cookie-banner" style="display: none;">
+  <p>Este sitio utiliza cookies para mejorar la experiencia. Al continuar, aceptas nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
+  <button id="accept-cookies">Aceptar</button>
+</section>
+  <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
+</body>
+</html>

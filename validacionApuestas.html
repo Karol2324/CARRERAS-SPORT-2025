@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apuestas - Carreras Sport</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 0;
+      border-bottom: 2px solid #e10600;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e10600;
+      text-decoration: none;
+    }
+
+    .nav-desktop {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-desktop a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-desktop a:hover,
+    .nav-desktop a.active {
+      color: #e10600;
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .betting-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .betting-header h1 {
+      font-size: 3rem;
+      color: #e10600;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
+    }
+
+    .betting-header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .user-info {
+      background: rgba(225, 6, 0, 0.1);
+      border: 1px solid #e10600;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .user-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e10600;
+    }
+
+    .betting-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .betting-section {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid #333;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #e10600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .race-selection {
+      margin-bottom: 2rem;
+    }
+
+    .race-select {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #e10600;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .betting-options {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .betting-option {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .betting-option:hover {
+      border-color: #e10600;
+      transform: translateY(-2px);
+    }
+
+    .betting-option.selected {
+      border-color: #e10600;
+      background: rgba(225, 6, 0, 0.1);
+    }
+
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .option-title {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .odds {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .bet-input {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: #fff;
+      margin-top: 1rem;
+    }
+
+    .bet-input:focus {
+      outline: none;
+      border-color: #e10600;
+    }
+
+    .validation-message {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .validation-error {
+      background: rgba(244, 67, 54, 0.2);
+      color: #f44336;
+      border: 1px solid #f44336;
+    }
+
+    .validation-success {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4CAF50;
+      border: 1px solid #4CAF50;
+    }
+
+    .validation-warning {
+      background: rgba(255, 152, 0, 0.2);
+      color: #FF9800;
+      border: 1px solid #FF9800;
+    }
+
+    .countdown {
+      background: rgba(225, 6, 0, 0.1);
+      border: 1px solid #e10600;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .countdown-timer {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #e10600;
+    }
+
+    .place-bet-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(45deg, #e10600, #ff4444);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .place-bet-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+    }
+
+    .place-bet-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .betting-history {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid #333;
+      margin-bottom: 2rem;
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .history-table th,
+    .history-table td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+
+    .history-table th {
+      background: rgba(225, 6, 0, 0.2);
+      color: #e10600;
+    }
+
+    .status {
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .status.pending {
+      background: rgba(255, 152, 0, 0.2);
+      color: #FF9800;
+    }
+
+    .status.won {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4CAF50;
+    }
+
+    .status.lost {
+      background: rgba(244, 67, 54, 0.2);
+      color: #f44336;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      position: relative;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      margin: 5% auto;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 15px;
+      border: 1px solid #e10600;
+    }
+
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ccc;
+    }
+
+    .close:hover {
+      color: #e10600;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, #e10600, #ff4444);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #e10600, #ff4444);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .betting-sections {
+        grid-template-columns: 1fr;
+      }
+      
+      .header-container {
+        padding: 0 1rem;
+      }
+      
+      .main-content {
+        padding: 1rem;
+      }
+      
+      .betting-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo">🏎️ CARRERAS SPORT</a>
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./noticias.html">Noticias</a></li>
+          <li><a href="./calendario.html">Calendario</a></li>
+          <li><a href="./apuestas.html" class="active">Apuestas</a></li>
+          <li><a href="./tienda.html">Tienda</a></li>
+          <li><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+          <li id="logout-item" style="display: none;">
+            <a href="#" id="logout-btn">Cerrar sesión</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Header de Apuestas -->
+    <div class="betting-header">
+      <h1>CENTRO DE APUESTAS</h1>
+      <p>Vive la emoción de apostar en F1 y MotoGP con límites responsables</p>
+    </div>
+
+    <!-- Información del Usuario -->
+    <div class="user-info" id="userInfo" style="display: none;">
+      <h2>¡Bienvenido, <span id="userName">Usuario</span>!</h2>
+      <div class="user-stats">
+        <div class="stat-item">
+          <div class="stat-value" id="userBalance">$1000.00</div>
+          <div>Saldo Disponible</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="dailyLimit">$200.00</div>
+          <div>Límite Diario Restante</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="weeklyLimit">$500.00</div>
+          <div>Límite Semanal Restante</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="totalBets">15</div>
+          <div>Apuestas Realizadas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secciones de Apuestas -->
+    <div class="betting-sections">
+      <!-- Fórmula 1 -->
+      <div class="betting-section">
+        <h2 class="section-title">
+          <i class="fas fa-flag-checkered"></i>
+          Fórmula 1
+        </h2>
+
+        <div class="countdown" id="f1Countdown">
+          <div>Próxima carrera: GP de Bélgica</div>
+          <div class="countdown-timer" id="f1Timer">02:15:30</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="f1Progress" style="width: 75%;"></div>
+          </div>
+        </div>
+
+        <div class="race-selection">
+          <select class="race-select" id="f1RaceSelect">
+            <option value="belgium-2025">GP de Bélgica 2025 - Spa-Francorchamps</option>
+            <option value="hungary-2025">GP de Hungría 2025 - Hungaroring</option>
+            <option value="netherlands-2025">GP de Países Bajos 2025 - Zandvoort</option>
+          </select>
+        </div>
+
+        <div class="betting-options" id="f1Options">
+          <div class="betting-option" data-bet-type="winner" data-selection="verstappen">
+            <div class="option-header">
+              <span class="option-title">Max Verstappen - Ganador</span>
+              <span class="odds">2.50</span>
+            </div>
+            <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+            <div class="validation-message" style="display: none;"></div>
+          </div>
+
+          <div class="betting-option" data-bet-type="winner" data-selection="norris">
+            <div class="option-header">
+              <span class="option-title">Lando Norris - Ganador</span>
+              <span class="odds">3.20</span>
+            </div>
+            <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+            <div class="validation-message" style="display: none;"></div>
+          </div>
+
+          <div class="betting-option" data-bet-type="podium" data-selection="leclerc">
+            <div class="option-header">
+              <span class="option-title">Charles Leclerc - Podio</span>
+              <span class="odds">1.80</span>
+            </div>
+            <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+            <div class="validation-message" style="display: none;"></div>
+          </div>
+        </div>
+
+        <button class="place-bet-btn" id="f1PlaceBet">Realizar Apuesta F1</button>
+      </div>
+
+      <!-- MotoGP -->
+      <div class="betting-section">
+        <h2 class="section-title">
+          <i class="fas fa-motorcycle"></i>
+          MotoGP
+        </h2>
+
+        <div class="countdown" id="motogpCountdown">
+          <div>Próxima carrera: GP de Austria</div>
+          <div class="countdown-timer" id="motogpTimer">01:45:22</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="motogpProgress" style="width: 60%;"></div>
+          </div>
+        </div>
+
+        <div class="race-selection">
+          <select class="race-select" id="motogpRaceSelect">
+            <option value="austria-2025">GP de Austria 2025 - Red Bull Ring</option>
+            <option value="britain-2025">GP de Gran Bretaña 2025 - Silverstone</option>
+            <option value="czech-2025">GP de República Checa 2025 - Brno</option>
+          </select>
+        </div>
+
+        <div class="betting-options" id="motogpOptions">
+          <div class="betting-option" data-bet-type="winner" data-selection="bagnaia">
+            <div class="option-header">
+              <span class="option-title">Francesco Bagnaia - Ganador</span>
+              <span class="odds">2.80</span>
+            </div>
+            <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+            <div class="validation-message" style="display: none;"></div>
+          </div>
+
+          <div class="betting-option" data-bet-type="winner" data-selection="martin">
+            <div class="option-header">
+              <span class="option-title">Jorge Martín - Ganador</span>
+              <span class="odds">3.10</span>
+            </div>
+            <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+            <div class="validation-message" style="display: none;"></div>
+          </div>
+
+          <div class="betting-option" data-bet-type="podium" data-selection="marquez">
+            <div class="option-header">
+              <span class="option-title">Marc Márquez - Podio</span>
+              <span class="odds">1.95</span>
+            </div>
+            <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+            <div class="validation-message" style="display: none;"></div>
+          </div>
+        </div>
+
+        <button class="place-bet-btn" id="motogpPlaceBet">Realizar Apuesta MotoGP</button>
+      </div>
+    </div>
+
+    <!-- Historial de Apuestas -->
+    <div class="betting-history">
+      <h2 class="section-title">
+        <i class="fas fa-history"></i>
+        Historial de Apuestas
+      </h2>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Carrera</th>
+            <th>Apuesta</th>
+            <th>Cantidad</th>
+            <th>Cuota</th>
+            <th>Estado</th>
+            <th>Ganancia/Pérdida</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody">
+          <tr>
+            <td>2025-07-20</td>
+            <td>GP Hungría F1</td>
+            <td>Verstappen Ganador</td>
+            <td>$50.00</td>
+            <td>2.50</td>
+            <td><span class="status won">Ganada</span></td>
+            <td style="color: #4CAF50;">+$125.00</td>
+          </tr>
+          <tr>
+            <td>2025-07-18</td>
+            <td>GP Austria MotoGP</td>
+            <td>Bagnaia Podio</td>
+            <td>$30.00</td>
+            <td>1.80</td>
+            <td><span class="status pending">Pendiente</span></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2025-07-15</td>
+            <td>GP Gran Bretaña F1</td>
+            <td>Norris Ganador</td>
+            <td>$25.00</td>
+            <td>3.20</td>
+            <td><span class="status lost">Perdida</span></td>
+            <td style="color: #f44336;">-$25.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Modal de Login -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Acceso Requerido</h2>
+      <p>Debes iniciar sesión para acceder al sistema de apuestas. Regístrate para obtener:</p>
+      <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+        <li>$1000 de saldo inicial</li>
+        <li>Límites de juego responsable</li>
+        <li>Historial de apuestas</li>
+        <li>Notificaciones en tiempo real</li>
+      </ul>
+      <a href="cuenta.html" class="modal-btn">Iniciar Sesión / Registrarse</a>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmación -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Confirmar Apuesta</h2>
+      <div id="confirmDetails"></div>
+      <button class="modal-btn" id="confirmBet">Confirmar Apuesta</button>
+      <button class="modal-btn" style="background: #666; margin-left: 1rem;" id="cancelBet">Cancelar</button>
+    </div>
+  </div>
+
+  <script>
+    // Sistema de Validación de Apuestas
+    class BettingValidationSystem {
+      constructor() {
+        this.isLoggedIn = false;
+        this.user = {
+          id: null,
+          name: '',
+          balance: 1000.00,
+          dailyLimit: 200.00,
+          weeklyLimit: 500.00,
+          dailySpent: 0.00,
+          weeklySpent: 0.00,
+          totalBets: 15,
+          bets: []
+        };
+        
+        this.races = {
+          f1: {
+            'belgium-2025': {
+              name: 'GP de Bélgica 2025',
+              closeTime: new Date('2025-08-15T14:00:00'),
+              status: 'open'
+            },
+            'hungary-2025': {
+              name: 'GP de Hungría 2025',
+              closeTime: new Date('2025-08-01T15:00:00'),
+              status: 'closed'
+            }
+          },
+          motogp: {
+            'austria-2025': {
+              name: 'GP de Austria 2025',
+              closeTime: new Date('2025-08-12T13:00:00'),
+              status: 'open'
+            }
+          }
+        };
+
+        this.validationRules = {
+          minBet: 5.00,
+          maxBet: 500.00,
+          maxDailyLimit: 200.00,
+          maxWeeklyLimit: 500.00,
+          minBalance: 0.00,
+          closingTimeHours: 2 // Horas antes de la carrera
+        };
+
+        this.init();
+      }
+
+      init() {
+        this.checkLoginStatus();
+        this.setupEventListeners();
+        this.startCountdowns();
+        this.loadBettingHistory();
+      }
+
+      checkLoginStatus() {
+        // Simular check de login
+        const userData = localStorage.getItem('userData');
+        if (userData) {
+          this.isLoggedIn = true;
+          this.user = {...this.user, ...JSON.parse(userData)};
+          this.showUserInterface();
+        } else {
+          this.showLoginModal();
+        }
+      }
+
+      showLoginModal() {
+        document.getElementById('loginModal').style.display = 'block';
+      }
+
+      showUserInterface() {
+        document.getElementById('userInfo').style.display = 'block';
+        document.getElementById('userName').textContent = this.user.name || 'Usuario Premium';
+        this.updateUserStats();
+      }
+
+      updateUserStats() {
+        document.getElementById('userBalance').textContent = `$${this.user.balance.toFixed(2)}`;
+        document.getElementById('dailyLimit').textContent = `$${(this.user.dailyLimit - this.user.dailySpent).toFixed(2)}`;
+        document.getElementById('weeklyLimit').textContent = `$${(this.user.weeklyLimit - this.user.weeklySpent).toFixed(2)}`;
+        document.getElementById('totalBets').textContent = this.user.totalBets;
+      }
+
+      setupEventListeners() {
+        // Cerrar modales
+        document.querySelectorAll('.close').forEach(closeBtn => {
+          closeBtn.onclick = () => {
+            closeBtn.closest('.modal').style.display = 'none';
+          };
+        });
+
+        // Validación en tiempo real de inputs
+        document.querySelectorAll('.bet-input').forEach(input => {
+          input.addEventListener('input', (e) => {
+            this.validateBetInput(e.target);
+          });
+
+          input.addEventListener('blur', (e) => {
+            this.validateBetInput(e.target, true);
+          });
+        });
+
+        // Selección de opciones de apuesta
+        document.querySelectorAll('.betting-option').forEach(option => {
+          option.addEventListener('click', () => {
+            this.selectBettingOption(option);
+          });
+        });
+
+        // Botones de apuesta
+        document.getElementById('f1PlaceBet').addEventListener('click', () => {
+          this.processBets('f1');
+        });
+
+        document.getElementById('motogpPlaceBet').addEventListener('click', () => {
+          this.processBets('motogp');
+        });
+
+        // Confirmación de apuesta
+        document.getElementById('confirmBet').addEventListener('click', () => {
+          this.confirmBet();
+        });
+
+        document.getElementById('cancelBet').addEventListener('click', () => {
+          document.getElementById('confirmModal').style.display = 'none';
+        });
+
+        // Simular login para demo
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && e.ctrlKey) {
+            this.simulateLogin();
+          }
+        });
+      }
+
+      simulateLogin() {
+        this.isLoggedIn = true;
+        this.user.name = 'Carlos Mendoza';
+        this.user.id = 'user_123';
+        document.getElementById('loginModal').style.display = 'none';
+        this.showUserInterface();
+        
+        // Mostrar mensaje de bienvenida
+        this.showNotification('¡Bienvenido al sistema de apuestas!', 'success');
+      }
+
+      validateBetInput(input, showAllMessages = false) {
+        const value = parseFloat(input.value);
+        const option = input.closest('.betting-option');
+        const messageElement = option.querySelector('.validation-message');
+        
+        let isValid = true;
+        let message = '';
+        let messageType = 'success';
+
+        // Validar si está logueado
+        if (!this.isLoggedIn) {
+          isValid = false;
+          message = 'Debes iniciar sesión para apostar';
+          messageType = 'error';
+        }
+        // Validar valor mínimo
+        else if (value && value < this.validationRules.minBet) {
+          isValid = false;
+          message = `Apuesta mínima: $${this.validationRules.minBet}`;
+          messageType = 'error';
+        }
+        // Validar valor máximo
+        else if (value && value > this.validationRules.maxBet) {
+          isValid = false;
+          message = `Apuesta máxima: $${this.validationRules.maxBet}`;
+          messageType = 'error';
+        }
+        // Validar saldo suficiente
+        else if (value && value > this.user.balance) {
+          isValid = false;
+          message = `Saldo insuficiente. Disponible: $${this.user.balance.toFixed(2)}`;
+          messageType = 'error';
+        }
+        // Validar límite diario
+        else if (value && (this.user.dailySpent + value) > this.user.dailyLimit) {
+          isValid = false;
+          message = `Excede límite diario. Disponible: $${(this.user.dailyLimit - this.user.dailySpent).toFixed(2)}`;
+          messageType = 'error';
+        }
+        // Validar límite semanal
+        else if (value && (this.user.weeklySpent + value) > this.user.weeklyLimit) {
+          isValid = false;
+          message = `Excede límite semanal. Disponible: ${(this.user.weeklyLimit - this.user.weeklySpent).toFixed(2)}`;
+          messageType = 'error';
+        }
+        // Validar tiempo de cierre
+        else if (!this.isRaceOpen(this.getCurrentRaceId(option))) {
+          isValid = false;
+          message = 'Las apuestas para esta carrera están cerradas';
+          messageType = 'error';
+        }
+        // Apuesta válida
+        else if (value && value >= this.validationRules.minBet) {
+          const potentialWin = value * this.getOdds(option);
+          message = `Ganancia potencial: ${potentialWin.toFixed(2)}`;
+          messageType = 'success';
+        }
+
+        // Mostrar mensaje de validación
+        if (message && (showAllMessages || messageType === 'error')) {
+          messageElement.textContent = message;
+          messageElement.className = `validation-message validation-${messageType}`;
+          messageElement.style.display = 'block';
+        } else if (!message) {
+          messageElement.style.display = 'none';
+        }
+
+        // Actualizar estado visual de la opción
+        if (value && isValid) {
+          option.classList.add('selected');
+        } else {
+          option.classList.remove('selected');
+        }
+
+        return isValid;
+      }
+
+      selectBettingOption(option) {
+        const input = option.querySelector('.bet-input');
+        input.focus();
+      }
+
+      getCurrentRaceId(option) {
+        const section = option.closest('.betting-section');
+        const isF1 = section.querySelector('#f1RaceSelect');
+        if (isF1) {
+          return document.getElementById('f1RaceSelect').value;
+        } else {
+          return document.getElementById('motogpRaceSelect').value;
+        }
+      }
+
+      isRaceOpen(raceId) {
+        const [category, race] = raceId.split('-')[0] === 'belgium' || raceId.split('-')[0] === 'hungary' || raceId.split('-')[0] === 'netherlands' ? ['f1', raceId] : ['motogp', raceId];
+        const raceData = this.races[category] && this.races[category][raceId];
+        if (!raceData) return false;
+        
+        const now = new Date();
+        const closeTime = new Date(raceData.closeTime.getTime() - (this.validationRules.closingTimeHours * 60 * 60 * 1000));
+        return now < closeTime;
+      }
+
+      getOdds(option) {
+        return parseFloat(option.querySelector('.odds').textContent);
+      }
+
+      processBets(category) {
+        if (!this.isLoggedIn) {
+          this.showLoginModal();
+          return;
+        }
+
+        const section = document.querySelector(`.betting-section:has(#${category}RaceSelect), .betting-section:has(#${category}PlaceBet)`);
+        const selectedOptions = section.querySelectorAll('.betting-option.selected');
+        
+        if (selectedOptions.length === 0) {
+          this.showNotification('Selecciona al menos una apuesta', 'warning');
+          return;
+        }
+
+        let totalAmount = 0;
+        const bets = [];
+        let hasErrors = false;
+
+        selectedOptions.forEach(option => {
+          const input = option.querySelector('.bet-input');
+          const amount = parseFloat(input.value);
+          
+          if (!this.validateBetInput(input, true)) {
+            hasErrors = true;
+            return;
+          }
+
+          totalAmount += amount;
+          bets.push({
+            type: option.dataset.betType,
+            selection: option.dataset.selection,
+            amount: amount,
+            odds: this.getOdds(option),
+            title: option.querySelector('.option-title').textContent
+          });
+        });
+
+        if (hasErrors) {
+          this.showNotification('Corrige los errores antes de continuar', 'error');
+          return;
+        }
+
+        // Validación final de límites totales
+        if (this.user.dailySpent + totalAmount > this.user.dailyLimit) {
+          this.showNotification(`Total excede límite diario. Disponible: ${(this.user.dailyLimit - this.user.dailySpent).toFixed(2)}`, 'error');
+          return;
+        }
+
+        if (this.user.weeklySpent + totalAmount > this.user.weeklyLimit) {
+          this.showNotification(`Total excede límite semanal. Disponible: ${(this.user.weeklyLimit - this.user.weeklySpent).toFixed(2)}`, 'error');
+          return;
+        }
+
+        if (totalAmount > this.user.balance) {
+          this.showNotification('Saldo insuficiente para realizar todas las apuestas', 'error');
+          return;
+        }
+
+        this.showConfirmationModal(bets, totalAmount, category);
+      }
+
+      showConfirmationModal(bets, totalAmount, category) {
+        const modal = document.getElementById('confirmModal');
+        const detailsElement = document.getElementById('confirmDetails');
+        
+        let detailsHTML = `
+          <h3>Resumen de Apuestas - ${category.toUpperCase()}</h3>
+          <div style="margin: 1rem 0;">
+        `;
+
+        bets.forEach(bet => {
+          const potentialWin = bet.amount * bet.odds;
+          detailsHTML += `
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; margin: 0.5rem 0; border-radius: 8px;">
+              <div><strong>${bet.title}</strong></div>
+              <div>Cantidad: ${bet.amount.toFixed(2)} | Cuota: ${bet.odds} | Ganancia potencial: ${potentialWin.toFixed(2)}</div>
+            </div>
+          `;
+        });
+
+        detailsHTML += `
+          </div>
+          <div style="border-top: 1px solid #444; padding-top: 1rem; margin-top: 1rem;">
+            <strong>Total a apostar: ${totalAmount.toFixed(2)}</strong><br>
+            <strong>Ganancia potencial total: ${bets.reduce((sum, bet) => sum + (bet.amount * bet.odds), 0).toFixed(2)}</strong>
+          </div>
+        `;
+
+        detailsElement.innerHTML = detailsHTML;
+        modal.style.display = 'block';
+
+        // Guardar datos para confirmación
+        this.pendingBets = { bets, totalAmount, category };
+      }
+
+      confirmBet() {
+        if (!this.pendingBets) return;
+
+        const { bets, totalAmount, category } = this.pendingBets;
+
+        // Procesar apuestas
+        bets.forEach(bet => {
+          const newBet = {
+            id: Date.now() + Math.random(),
+            date: new Date().toISOString().split('T')[0],
+            race: this.getCurrentRaceName(category),
+            type: bet.type,
+            selection: bet.selection,
+            title: bet.title,
+            amount: bet.amount,
+            odds: bet.odds,
+            status: 'pending',
+            category: category
+          };
+
+          this.user.bets.push(newBet);
+        });
+
+        // Actualizar saldos y límites
+        this.user.balance -= totalAmount;
+        this.user.dailySpent += totalAmount;
+        this.user.weeklySpent += totalAmount;
+        this.user.totalBets += bets.length;
+
+        // Guardar en localStorage
+        localStorage.setItem('userData', JSON.stringify(this.user));
+        localStorage.setItem('userBets', JSON.stringify(this.user.bets));
+
+        // Actualizar interfaz
+        this.updateUserStats();
+        this.loadBettingHistory();
+        this.clearSelectedBets();
+
+        // Cerrar modal y mostrar confirmación
+        document.getElementById('confirmModal').style.display = 'none';
+        this.showNotification(`¡Apuesta realizada exitosamente! Total: ${totalAmount.toFixed(2)}`, 'success');
+
+        this.pendingBets = null;
+      }
+
+      getCurrentRaceName(category) {
+        if (category === 'f1') {
+          const raceId = document.getElementById('f1RaceSelect').value;
+          return this.races.f1[raceId]?.name || 'Carrera F1';
+        } else {
+          const raceId = document.getElementById('motogpRaceSelect').value;
+          return this.races.motogp[raceId]?.name || 'Carrera MotoGP';
+        }
+      }
+
+      clearSelectedBets() {
+        document.querySelectorAll('.betting-option.selected').forEach(option => {
+          option.classList.remove('selected');
+          option.querySelector('.bet-input').value = '';
+          option.querySelector('.validation-message').style.display = 'none';
+        });
+      }
+
+      loadBettingHistory() {
+        const savedBets = localStorage.getItem('userBets');
+        if (savedBets) {
+          this.user.bets = JSON.parse(savedBets);
+        }
+
+        const tableBody = document.getElementById('historyTableBody');
+        
+        // Combinar apuestas guardadas con datos de ejemplo
+        const allBets = [
+          ...this.user.bets.slice(-10), // Últimas 10 apuestas del usuario
+          {
+            date: '2025-07-20',
+            race: 'GP Hungría F1',
+            title: 'Verstappen Ganador',
+            amount: 50.00,
+            odds: 2.50,
+            status: 'won',
+            result: 125.00
+          },
+          {
+            date: '2025-07-18',
+            race: 'GP Austria MotoGP',
+            title: 'Bagnaia Podio',
+            amount: 30.00,
+            odds: 1.80,
+            status: 'pending',
+            result: null
+          },
+          {
+            date: '2025-07-15',
+            race: 'GP Gran Bretaña F1',
+            title: 'Norris Ganador',
+            amount: 25.00,
+            odds: 3.20,
+            status: 'lost',
+            result: -25.00
+          }
+        ];
+
+        tableBody.innerHTML = '';
+        
+        allBets.slice(-10).forEach(bet => {
+          const row = document.createElement('tr');
+          const resultText = bet.status === 'pending' ? '-' : 
+                            bet.status === 'won' ? `+${bet.result || (bet.amount * bet.odds).toFixed(2)}` :
+                            `-${bet.amount.toFixed(2)}`;
+          const resultColor = bet.status === 'won' ? '#4CAF50' : 
+                             bet.status === 'lost' ? '#f44336' : '#ccc';
+
+          row.innerHTML = `
+            <td>${bet.date}</td>
+            <td>${bet.race}</td>
+            <td>${bet.title}</td>
+            <td>${bet.amount.toFixed(2)}</td>
+            <td>${bet.odds}</td>
+            <td><span class="status ${bet.status}">${this.getStatusText(bet.status)}</span></td>
+            <td style="color: ${resultColor};">${resultText}</td>
+          `;
+          
+          tableBody.appendChild(row);
+        });
+      }
+
+      getStatusText(status) {
+        const statusTexts = {
+          'pending': 'Pendiente',
+          'won': 'Ganada',
+          'lost': 'Perdida'
+        };
+        return statusTexts[status] || status;
+      }
+
+      startCountdowns() {
+        // Countdown para F1
+        this.updateCountdown('f1Timer', 'f1Progress', new Date('2025-08-15T14:00:00'));
+        
+        // Countdown para MotoGP
+        this.updateCountdown('motogpTimer', 'motogpProgress', new Date('2025-08-12T13:00:00'));
+
+        // Actualizar cada segundo
+        setInterval(() => {
+          this.updateCountdown('f1Timer', 'f1Progress', new Date('2025-08-15T14:00:00'));
+          this.updateCountdown('motogpTimer', 'motogpProgress', new Date('2025-08-12T13:00:00'));
+        }, 1000);
+      }
+
+      updateCountdown(timerId, progressId, targetDate) {
+        const now = new Date();
+        const closeTime = new Date(targetDate.getTime() - (2 * 60 * 60 * 1000)); // 2 horas antes
+        const difference = closeTime.getTime() - now.getTime();
+
+        if (difference > 0) {
+          const hours = Math.floor(difference / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          document.getElementById(timerId).textContent = 
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+          // Calcular progreso (24 horas hasta cierre)
+          const totalTime = 24 * 60 * 60 * 1000;
+          const elapsed = totalTime - difference;
+          const progress = Math.min(100, Math.max(0, (elapsed / totalTime) * 100));
+          
+          document.getElementById(progressId).style.width = `${progress}%`;
+        } else {
+          document.getElementById(timerId).textContent = 'CERRADO';
+          document.getElementById(progressId).style.width = '100%';
+          
+          // Deshabilitar apuestas para esta carrera
+          const section = document.getElementById(timerId).closest('.betting-section');
+          section.querySelectorAll('.betting-option').forEach(option => {
+            option.style.opacity = '0.5';
+            option.style.pointerEvents = 'none';
+            const input = option.querySelector('.bet-input');
+            input.disabled = true;
+          });
+        }
+      }
+
+      showNotification(message, type = 'info') {
+        // Crear notificación
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: ${type === 'success' ? 'rgba(76, 175, 80, 0.9)' : 
+                       type === 'error' ? 'rgba(244, 67, 54, 0.9)' : 
+                       type === 'warning' ? 'rgba(255, 152, 0, 0.9)' : 'rgba(33, 150, 243, 0.9)'};
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          z-index: 1001;
+          max-width: 400px;
+          border-left: 4px solid ${type === 'success' ? '#4CAF50' : 
+                                   type === 'error' ? '#f44336' : 
+                                   type === 'warning' ? '#FF9800' : '#2196F3'};
+          animation: slideIn 0.3s ease-out;
+        `;
+
+        notification.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                               type === 'error' ? 'exclamation-circle' : 
+                               type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+            <span>${message}</span>
+          </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Remover después de 5 segundos
+        setTimeout(() => {
+          notification.style.animation = 'slideOut 0.3s ease-out';
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 5000);
+      }
+
+      // Métodos para gestión de límites de tiempo
+      checkRaceTimeRestrictions() {
+        Object.keys(this.races).forEach(category => {
+          Object.keys(this.races[category]).forEach(raceId => {
+            const race = this.races[category][raceId];
+            const now = new Date();
+            const closeTime = new Date(race.closeTime.getTime() - (this.validationRules.closingTimeHours * 60 * 60 * 1000));
+            
+            if (now >= closeTime && race.status === 'open') {
+              race.status = 'closed';
+              this.disableRaceBetting(category, raceId);
+            }
+          });
+        });
+      }
+
+      disableRaceBetting(category, raceId) {
+        const selectElement = document.getElementById(`${category}RaceSelect`);
+        if (selectElement && selectElement.value === raceId) {
+          // Deshabilitar opciones de apuesta
+          const section = selectElement.closest('.betting-section');
+          section.querySelectorAll('.betting-option').forEach(option => {
+            option.style.opacity = '0.5';
+            option.style.pointerEvents = 'none';
+            const input = option.querySelector('.bet-input');
+            input.disabled = true;
+          });
+          
+          this.showNotification(`Las apuestas para ${this.races[category][raceId].name} están cerradas`, 'warning');
+        }
+      }
+
+      // Sistema de registro de apuestas vinculado al usuario
+      saveBetToDatabase(bet) {
+        // Simular guardado en base de datos
+        const betRecord = {
+          ...bet,
+          userId: this.user.id,
+          timestamp: new Date().toISOString(),
+          ip: 'xxx.xxx.xxx.xxx', // En producción sería la IP real
+          deviceInfo: navigator.userAgent,
+          sessionId: 'session_' + Date.now()
+        };
+
+        // En un proyecto real, esto sería una llamada a la API
+        console.log('Apuesta guardada:', betRecord);
+        
+        // Simular respuesta del servidor
+        return Promise.resolve({
+          success: true,
+          betId: betRecord.id,
+          message: 'Apuesta registrada exitosamente'
+        });
+      }
+
+      // Validaciones avanzadas de seguridad
+      validateBettingSession() {
+        // Verificar sesión válida
+        if (!this.user.id) {
+          this.showNotification('Sesión inválida. Por favor, inicia sesión nuevamente.', 'error');
+          return false;
+        }
+
+        // Verificar límites de tiempo de sesión (ejemplo: 6 horas)
+        const sessionStart = localStorage.getItem('sessionStart');
+        if (sessionStart) {
+          const sessionDuration = Date.now() - parseInt(sessionStart);
+          const maxSessionTime = 6 * 60 * 60 * 1000; // 6 horas
+          
+          if (sessionDuration > maxSessionTime) {
+            this.showNotification('Sesión expirada. Inicia sesión nuevamente.', 'warning');
+            this.logout();
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      logout() {
+        this.isLoggedIn = false;
+        this.user = {
+          id: null,
+          name: '',
+          balance: 1000.00,
+          dailyLimit: 200.00,
+          weeklyLimit: 500.00,
+          dailySpent: 0.00,
+          weeklySpent: 0.00,
+          totalBets: 0,
+          bets: []
+        };
+        
+        localStorage.removeItem('userData');
+        localStorage.removeItem('userBets');
+        localStorage.removeItem('sessionStart');
+        
+        document.getElementById('userInfo').style.display = 'none';
+        this.showLoginModal();
+      }
+
+      // Método para administradores - gestión de apuestas
+      adminBetManagement() {
+        return {
+          getUserBets: (userId) => {
+            // Obtener todas las apuestas de un usuario específico
+            const userBets = this.user.bets.filter(bet => bet.userId === userId);
+            return userBets;
+          },
+          
+          updateBetStatus: (betId, newStatus, result = null) => {
+            // Actualizar estado de apuesta (ganada/perdida)
+            const bet = this.user.bets.find(b => b.id === betId);
+            if (bet) {
+              bet.status = newStatus;
+              if (result !== null) {
+                bet.result = result;
+                if (newStatus === 'won') {
+                  this.user.balance += result;
+                }
+              }
+              this.updateUserStats();
+              this.loadBettingHistory();
+            }
+          },
+          
+          getBettingStatistics: () => {
+            // Estadísticas para administradores
+            return {
+              totalBets: this.user.bets.length,
+              totalAmount: this.user.bets.reduce((sum, bet) => sum + bet.amount, 0),
+              pendingBets: this.user.bets.filter(bet => bet.status === 'pending').length,
+              wonBets: this.user.bets.filter(bet => bet.status === 'won').length,
+              lostBets: this.user.bets.filter(bet => bet.status === 'lost').length
+            };
+          }
+        };
+      }
+    }
+
+    // Inicializar sistema
+    const bettingSystem = new BettingValidationSystem();
+
+    // Agregar estilos de animación
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
+
+      .betting-option {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .betting-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.1), transparent);
+        transition: left 0.5s;
+      }
+
+      .betting-option:hover::before {
+        left: 100%;
+      }
+
+      .place-bet-btn {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .place-bet-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+      }
+
+      .place-bet-btn:active::before {
+        width: 300px;
+        height: 300px;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Función global para demostración
+    window.demoLogin = () => {
+      bettingSystem.simulateLogin();
+    };
+
+    // Mensaje informativo para el usuario
+    setTimeout(() => {
+      if (!bettingSystem.isLoggedIn) {
+        bettingSystem.showNotification('Presiona Ctrl + Enter para simular login y probar el sistema', 'info');
+      }
+    }, 2000);
+
+    // Verificar restricciones de tiempo cada minuto
+    setInterval(() => {
+      bettingSystem.checkRaceTimeRestrictions();
+    }, 60000);
+  </script>
+</body>
+</html>

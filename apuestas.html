@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuestas - Carreras Sport</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="./images/logo5.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body>
+    <header class="header">
+        <section class="header-container">
+            <a href="#" class="logo">
+                <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+            </a>
+            
+            <nav>
+                <ul class="nav-desktop">
+                    <li><a href="./index.html"> Inicio</a></li>
+                    <li><a href="./noticias.html"> Noticias</a></li>
+                    <li><a href="./calendario.html"> Calendario</a></li>
+                    <li><a href="./apuestas.html" class="active"> Apuestas</a></li>
+                    <li><a href="./tienda.html"> Tienda</a></li>
+                    <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+                    <li id="logout-item" style="display: none;">
+                        <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+            </nav>
+        </section>
+            
+        <section class="nav-mobile" id="mobileMenu">
+            <ul>
+                <li><a href="./index.html" class="active"> Inicio</a></li>
+                <li><a href="./noticias.html"> Noticias</a></li>
+                <li><a href="./calendario.html"> Calendario</a></li>
+                <li><a href="./apuestas.html"> Apuestas</a></li>
+                <li><a href="./tienda.html"> Tienda</a></li>
+                <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+                <li id="logout-item" style="display: none;">
+                    <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                </li>
+            </ul>
+        </section>
+    </header>
+    
+    <main class="main-content">
+        <section class="betting-header">
+            <h1>CENTRO DE APUESTAS</h1>
+            <p>Vive la emoción de apostar en F1 y MotoGP con límites responsables</p>
+        </section>
+
+        <section class="user-info" id="userInfo" style="display: none;">
+            <h2>¡Bienvenido, <span id="userName">Usuario</span>!</h2>
+            <section class="user-stats">
+                <article class="stat-item">
+                    <section class="stat-value" id="userBalance">$1000.00</section>
+                    <p>Saldo Disponible</p>
+                </article>
+                <article class="stat-item">
+                    <section class="stat-value" id="dailyLimit">$200.00</section>
+                    <p>Límite Diario Restante</p>
+                </article>
+                <article class="stat-item">
+                    <section class="stat-value" id="weeklyLimit">$500.00</section>
+                    <p>Límite Semanal Restante</p>
+                </article>
+                <article class="stat-item">
+                    <section class="stat-value" id="totalBets">15</section>
+                    <p>Apuestas Realizadas</p>
+                </article>
+            </section>
+        </section>
+
+        <section class="betting-sections">
+            <section class="betting-section">
+                <h2 class="section-title2">
+                    <i class="fas fa-flag-checkered"></i>
+                    Fórmula 1
+                </h2>
+
+                <article class="countdown" id="f1Countdown">
+                    <p>Próxima carrera: GP de Bélgica</p>
+                    <section class="countdown-timer" id="f1Timer">02:15:30</section>
+                    <section class="progress-bar">
+                        <section class="progress-fill" id="f1Progress" style="width: 75%;"></section>
+                    </section>
+                </article>
+
+                <article class="race-selection">
+                    <select class="race-select" id="f1RaceSelect">
+                        <option value="belgium-2025">GP de Bélgica 2025 - Spa-Francorchamps</option>
+                        <option value="hungary-2025">GP de Hungría 2025 - Hungaroring</option>
+                        <option value="netherlands-2025">GP de Países Bajos 2025 - Zandvoort</option>
+                    </select>
+                </article>
+
+                <article class="betting-options" id="f1Options">
+                    <section class="betting-option" data-bet-type="winner" data-selection="verstappen">
+                        <article class="option-header">
+                            <span class="option-title">Max Verstappen - Ganador</span>
+                            <span class="odds">2.50</span>
+                        </article>
+                        <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+                        <section class="validation-message" style="display: none;"></section>
+                    </section>
+
+                    <section class="betting-option" data-bet-type="winner" data-selection="norris">
+                        <article class="option-header">
+                            <span class="option-title">Lando Norris - Ganador</span>
+                            <span class="odds">3.20</span>
+                        </article>
+                        <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+                        <section class="validation-message" style="display: none;"></section>
+                    </section>
+
+                    <section class="betting-option" data-bet-type="podium" data-selection="leclerc">
+                        <article class="option-header">
+                            <span class="option-title">Charles Leclerc - Podio</span>
+                            <span class="odds">1.80</span>
+                        </article>
+                        <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+                        <section class="validation-message" style="display: none;"></section>
+                    </section>
+                </article>
+                <button class="place-bet-btn" id="f1PlaceBet">Realizar Apuesta F1</button>
+            </section>
+
+            <section class="betting-section">
+                <h2 class="section-title2">
+                    <i class="fas fa-motorcycle"></i>
+                    MotoGP
+                </h2>
+
+                <article class="countdown" id="motogpCountdown">
+                    <p>Próxima carrera: GP de Austria</p>
+                    <section class="countdown-timer" id="motogpTimer">01:45:22</section>
+                    <section class="progress-bar">
+                        <section class="progress-fill" id="motogpProgress" style="width: 60%;"></section>
+                    </section>
+                </article>
+
+                <article class="race-selection">
+                    <select class="race-select" id="motogpRaceSelect">
+                        <option value="austria-2025">GP de Austria 2025 - Red Bull Ring</option>
+                        <option value="britain-2025">GP de Gran Bretaña 2025 - Silverstone</option>
+                        <option value="czech-2025">GP de República Checa 2025 - Brno</option>
+                    </select>
+                </article>
+
+                <article class="betting-options" id="motogpOptions">
+                    <section class="betting-option" data-bet-type="winner" data-selection="bagnaia">
+                        <article class="option-header">
+                            <span class="option-title">Francesco Bagnaia - Ganador</span>
+                            <span class="odds">2.80</span>
+                        </article>
+                        <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+                        <section class="validation-message" style="display: none;"></section>
+                    </section>
+
+                    <section class="betting-option" data-bet-type="winner" data-selection="martin">
+                        <article class="option-header">
+                            <span class="option-title">Jorge Martín - Ganador</span>
+                            <span class="odds">3.10</span>
+                        </article>
+                        <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+                        <section class="validation-message" style="display: none;"></section>
+                    </section>
+
+                    <section class="betting-option" data-bet-type="podium" data-selection="marquez">
+                        <article class="option-header">
+                            <span class="option-title">Marc Márquez - Podio</span>
+                            <span class="odds">1.95</span>
+                        </article>
+                        <input type="number" class="bet-input" placeholder="Cantidad a apostar ($)" min="5" max="500" step="5">
+                        <section class="validation-message" style="display: none;"></section>
+                    </section>
+                </article>
+                <button class="place-bet-btn" id="motogpPlaceBet">Realizar Apuesta MotoGP</button>
+            </section>
+        </section>
+
+
+        <section class="rewards-section">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                Sistema de Recompensas
+            </h2>
+            <article class="trivia-container">
+                <p>Responde correctamente a las preguntas para ganar puntos y logros.</p>
+                <section id="trivia"></section>
+                <button onclick="iniciarTrivia()" id="iniciarTriviaBtn">Iniciar Trivia</button>
+                <section id="resultado"></section>
+                <section id="logros"></section>
+                <section id="bonificacion"></section>
+            </article>
+        </section>
+    </main>
+
+    <section id="loginModal" class="modal">
+        <article class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contenido Exclusivo</h2>
+            <p>Regístrate o inicia sesión para acceder a contenido premium de Fórmula 1 y MotoGP.</p>
+            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                <li>$1000 de saldo inicial</li>
+                <li>Límites de juego responsable</li>
+                <li>Historial de apuestas</li>
+                <li>Notificaciones en tiempo real</li>
+            </ul>
+            <a href="cuenta.html" class="modal-btn">Iniciar Sesión / Registrarse</a>
+        </article>
+    </section>
+
+    <section id="confirmModal" class="modal">
+        <article class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirmar Apuesta</h2>
+            <section id="confirmDetails"></section>
+            <button class="modal-btn" id="confirmBet">Confirmar Apuesta</button>
+            <button class="modal-btn" style="background: #666; margin-left: 1rem;" id="cancelBet">Cancelar</button>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <section class="footer-container">
+            <section class="footer-content">
+                <article class="footer-section">
+                    <h3>Carreras Sport</h3>
+                    <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+                    <article class="social-links">
+                        <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </article>
+                </article>
+                
+                <article class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./noticias.html">Noticias</a></li>
+                        <li><a href="./calendario.html">Calendario</a></li>
+                        <li><a href="./apuestas.html">Apuestas</a></li>
+                        <li><a href="./tienda.html">Tienda</a></li>
+                        <li><a href="./cuenta.html">Mi cuenta</a></li>
+                    </ul>
+                </article>
+                
+                <article class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+                        <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+                        <li><a href="./tienda.html">Tienda Oficial</a></li>
+                    </ul>
+                </article>
+                
+                <article class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="Centro-de-Ayuda.html">Centro de Ayuda</a></li>
+                        <li><a href="Contacto.html">Contacto</a></li>
+                        <li><a href="TerminosyCondiciones.html">Términos y Condiciones</a></li>
+                        <li><a href="Politica-privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="Cookies.html">Cookies</a></li>
+                    </ul>
+                </article>
+            </section>
+            
+            <section class="footer-bottom">
+                <p>&copy; 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+            </section>
+        </section>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/apuestas.js"></script>
+    <script src="js/recompensas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nombreUsuario = localStorage.getItem('nombreUsuario');
+            const mainContent = document.querySelector('main.main-content');
+            const loginModal = document.getElementById('loginModal');
+            const rewardsSection = document.querySelector('.rewards-section');
+
+            if (nombreUsuario) {
+                // Si el usuario está logueado, muestra el contenido
+                if (mainContent) {
+                    mainContent.style.display = 'block';
+                }
+                if (loginModal) {
+                    loginModal.style.display = 'none';
+                }
+            } else {
+                // Si el usuario NO está logueado, muestra el modal de login y oculta el contenido
+                if (mainContent) {
+                    mainContent.style.display = 'none';
+                }
+                if (loginModal) {
+                    loginModal.style.display = 'flex';
+                }
+                if (rewardsSection) {
+                    rewardsSection.style.display = 'none';
+                }
+            }
+        });
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

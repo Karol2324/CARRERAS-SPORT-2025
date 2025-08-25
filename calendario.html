@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carreras Sport - F1 & MotoGP</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo5.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ40YP48KM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ40YP48KM');
+</script>
+</head>
+<body>
+<body>
+    <header class="header">
+        <section class="header-container">
+            <a href="index.html" class="logo">
+                <img src="./images/logo5.png" alt="Logo Carreras Sport" class="logo-icon">
+            </a>
+
+            <nav>
+                <ul class="nav-desktop">
+                    <li><a href="./index.html"> Inicio</a></li>
+                    <li><a href="./noticias.html"> Noticias</a></li>
+                    <li><a href="./calendario.html" class="active"> Calendario</a></li>
+                    <li><a href="./apuestas.html"> Apuestas</a></li>
+                    <li><a href="./tienda.html"> Tienda</a></li>
+                    <li id="account-link"><a href="./cuenta.html" id="cuentaLink">Mi cuenta</a></li>
+                    <li id="logout-item" style="display: none;">
+                        <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                    </li>
+                </ul>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()"> ☰ </button>
+            </nav>
+        </section>
+
+        <section class="nav-mobile" id="mobileMenu">
+            <ul>
+                <li><a href="./index.html" > Inicio</a></li>
+                <li><a href="./noticias.html"> Noticias</a></li>
+                <li><a href="./calendario.html" class="active"> Calendario</a></li>
+                <li><a href="./apuestas.html"> Apuestas</a></li>
+                <li><a href="./tienda.html"> Tienda</a></li>
+                <li><a href="cuenta.html" id="cuentaLinkMovil">Mi cuenta</a></li>
+                <li id="logout-item" style="display: none;">
+                    <a href="#" id="logout-btn" class="nav-link">Cerrar sesión</a>
+                </li>
+            </ul>
+        </section>
+    </header>
+
+    <main class="calendar-page-main">
+        <h1 class="main-title">CALENDARIO 2025</h1>
+
+    <!-- Filtro por mes -->
+    <div class="filter-container">
+      <label for="mes">Filtrar por mes:</label>
+      <select id="mes">
+        <option value="todos">Todos</option>
+        <option value="enero">Enero</option>
+        <option value="febrero">Febrero</option>
+        <option value="marzo">Marzo</option>
+        <option value="abril">Abril</option>
+        <option value="mayo">Mayo</option>
+        <option value="junio">Junio</option>
+        <option value="julio">Julio</option>
+        <option value="agosto">Agosto</option>
+        <option value="septiembre">Septiembre</option>
+        <option value="octubre">Octubre</option>
+        <option value="noviembre">Noviembre</option>
+        <option value="diciembre">Diciembre</option>
+      </select>
+    </div>
+
+        <div class="calendar-tables-wrapper"> <section class="f1-calendar-section calendar-group">
+                <h2 class="f1-header group-header">FÓRMULA 1</h2>
+                <table class="calendar-table">
+                    <tbody>
+                        <tr>
+                            <td class="round">R01</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/au.svg" alt="Australia Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.espn.com.ar/deporte-motor/f1/nota/_/id/14922526/f1-terminar-el-gp-de-australia-fue-el-gran-desafio-jack-doohan" target="_blank">
+                                    <span class="race-name">GP de Australia</span>
+                                    <span class="location">Melbourne</span>
+                                    <span class="date">14-16 Marzo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R02</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="China Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_China" target="_blank">
+                                    <span class="race-name">GP de China</span>
+                                    <span class="location">Shanghái</span>
+                                    <span class="date">21-23 Marzo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R03</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" alt="Japan Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_Jap%C3%B3n" target="_blank">
+                                    <span class="race-name">GP de Japón</span>
+                                    <span class="location">Suzuka</span>
+                                    <span class="date">4-6 Abril</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R04</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/bh.svg" alt="Bahrain Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Bahrain.html" target="_blank">
+                                    <span class="race-name">GP de Bahréin</span>
+                                    <span class="location">Sakhir</span>
+                                    <span class="date">11-13 Abril</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R05</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/sa.svg" alt="Saudi Arabia Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Anexo:Gran_Premio_de_Arabia_Saudita_de_2025" target="_blank">
+                                    <span class="race-name">GP de Arabia Saudita</span>
+                                    <span class="location">Yeda</span>
+                                    <span class="date">18-20 Abril</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R06</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" alt="USA Flag"></td>
+                            <td class="race-info">
+                                <a href="https://en.wikipedia.org/wiki/2025_Miami_Grand_Prix" target="_blank">
+                                    <span class="race-name">GP de Miami</span>
+                                    <span class="location">Miami</span>
+                                    <span class="date">2-4 Mayo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R07</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italy Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.dazn.com/es-ES/news/motor/gp-emilia-romagna-f1-imola-fecha-hora-canal-tv-donde-ver-online-gran-premio-mundial-formula-1/ao4rvqvqt2981ha7rser82hyu" target="_blank">
+                                    <span class="race-name">GP de Emilia-Romaña</span>
+                                    <span class="location">Imola</span>
+                                    <span class="date">16-18 Mayo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R08</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/mc.svg" alt="Monaco Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_M%C3%B3naco" target="_blank">
+                                    <span class="race-name">GP de Mónaco</span>
+                                    <span class="location">Mónaco</span>
+                                    <span class="date">23-25 Mayo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R09</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spain Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Spain.html" target="_blank">
+                                    <span class="race-name">GP de España (Barcelona)</span>
+                                    <span class="location">Barcelona</span>
+                                    <span class="date">30 Mayo - 1 Junio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R10</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/ca.svg" alt="Canada Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Canada.html" target="_blank">
+                                    <span class="race-name">GP de Canadá</span>
+                                    <span class="location">Montreal</span>
+                                    <span class="date">13-15 Junio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R11</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/at.svg" alt="Austria Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Austria.html" target="_blank">
+                                    <span class="race-name">GP de Austria</span>
+                                    <span class="location">Spielberg</span>
+                                    <span class="date">27-29 Junio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R12</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="UK Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Great_Britain.html" target="_blank">
+                                    <span class="race-name">GP de Gran Bretaña</span>
+                                    <span class="location">Silverstone</span>
+                                    <span class="date">4-6 Julio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R13</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/be.svg" alt="Belgium Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Belgium.html" target="_blank">
+                                    <span class="race-name">GP de Bélgica</span>
+                                    <span class="location">Spa-Francorchamps</span>
+                                    <span class="date">18-20 Julio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R14</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungary Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Hungary.html" target="_blank">
+                                    <span class="race-name">GP de Hungría</span>
+                                    <span class="location">Hungaroring</span>
+                                    <span class="date">1-3 Agosto</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R15</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" alt="Netherlands Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Netherlands.html" target="_blank">
+<span class="race-name">GP de los Países Bajos</span>
+                                    <span class="location">Zandvoort</span>
+                                    <span class="date">22-24 Agosto</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R16</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italy Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Italy_Monza.html" target="_blank">
+                                    <span class="race-name">GP de Italia (Monza)</span>
+                                    <span class="location">Monza</span>
+                                    <span class="date">29 Agosto - 31 Agosto</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R17</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/az.svg" alt="Azerbaijan Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Azerbaijan.html" target="_blank">
+                                    <span class="race-name">GP de Azerbaiyán</span>
+                                    <span class="location">Bakú</span>
+                                    <span class="date">12-14 Septiembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R18</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/sg.svg" alt="Singapore Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Singapore.html" target="_blank">
+                                    <span class="race-name">GP de Singapur</span>
+                                    <span class="location">Singapur</span>
+                                    <span class="date">26-28 Septiembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R19</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" alt="USA Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/United_States.html" target="_blank">
+                                    <span class="race-name">GP de Estados Unidos</span>
+                                    <span class="location">Austin</span>
+                                    <span class="date">17-19 Octubre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R20</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/mx.svg" alt="Mexico Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Mexico_City.html" target="_blank">
+                                    <span class="race-name">GP de Ciudad de México</span>
+                                    <span class="location">Ciudad de México</span>
+                                    <span class="date">24-26 Octubre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R21</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/br.svg" alt="Brazil Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Brazil.html" target="_blank">
+                                    <span class="race-name">GP de Brasil</span>
+                                    <span class="location">São Paulo</span>
+                                    <span class="date">7-9 Noviembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R22</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/lv.svg" alt="Las Vegas Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Las_Vegas.html" target="_blank">
+                                    <span class="race-name">GP de Las Vegas</span>
+                                    <span class="location">Las Vegas</span>
+                                    <span class="date">20-22 Noviembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R23</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/qa.svg" alt="Qatar Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Qatar.html" target="_blank">
+                                    <span class="race-name">GP de Qatar</span>
+                                    <span class="location">Lusail</span>
+                                    <span class="date">28-30 Noviembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R24</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/ae.svg" alt="Abu Dhabi Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/Abu_Dhabi.html" target="_blank">
+                                    <span class="race-name">GP de Abu Dhabi</span>
+                                    <span class="location">Yas Marina</span>
+                                    <span class="date">5-7 Diciembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="motogp-calendar-section calendar-group">
+                <h2 class="motogp-header group-header">MOTOGP</h2>
+                <table class="calendar-table">
+                    <tbody>
+                        <tr>
+                            <td class="round">R01</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/qa.svg" alt="Qatar Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/racing/2025/qatar" target="_blank">
+                                    <span class="race-name">GP de Qatar</span>
+                                    <span class="location">Lusail</span>
+                                    <span class="date">7-9 Marzo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R02</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/pt.svg" alt="Portugal Flag"></td>
+                            <td class="race-info">
+                                <a href="https://motogppremier.motogp.com/es/2025-motogp-portugal" target="_blank">
+                                    <span class="race-name">GP de Portugal</span>
+                                    <span class="location">Portimão</span>
+                                    <span class="date">21-23 Marzo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R03</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" alt="USA Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_los_Estados_Unidos" target="_blank">
+                                    <span class="race-name">GP de las Américas</span>
+                                    <span class="location">Austin</span>
+                                    <span class="date">11-13 Abril</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R04</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/ar.svg" alt="Argentina Flag"></td>
+                            <td class="race-info">
+                                <a href="https://en.wikipedia.org/wiki/Argentine_motorcycle_Grand_Prix#:~:text=El%20Gran%20Premio%20de%20Argentina,la%20Rep%C3%BAblica%20Argentina%20de%20Motociclismo%20." target="_blank">
+                                    <span class="race-name">GP de Argentina</span>
+                                    <span class="location">Termas de Río Hondo</span>
+                                    <span class="date">25-27 Abril</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R05</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spain Flag"></td>
+                            <td class="race-info">
+                                <a href="https://circuitodejerez.com/motogp-2025-2/#:~:text=Noticias%20sobre%20el%20evento&text=Jerez%20ser%C3%A1%20la%20quinta%20prueba,24%20de%20julio%20de%202025." target="_blank">
+                                    <span class="race-name">GP de España (Jerez)</span>
+                                    <span class="location">Jerez</span>
+                                    <span class="date">2-4 Mayo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R06</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="France Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.espn.com.ar/motociclismo/nota/_/id/15161777/gp-de-francia-marc-marquez-es-rey-de-los-sabados-en-motogp" target="_blank">
+                                    <span class="race-name">GP de Francia</span>
+                                    <span class="location">Le Mans</span>
+                                    <span class="date">16-18 Mayo</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R07</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italy Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_Italia_de_Motociclismo" target="_blank">
+                                    <span class="race-name">GP de Italia (Mugello)</span>
+                                    <span class="location">Mugello</span>
+                                    <span class="date">30 Mayo - 1 Junio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R08</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Germany Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.motogp.com/en/events/2025/Germany/info" target="_blank">
+                                    <span class="race-name">GP de Alemania</span>
+                                    <span class="location">Sachsenring</span>
+                                    <span class="date">13-15 Junio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R09</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" alt="Netherlands Flag"></td>
+                            <td class="race-info">
+                                <a href="https://en.wikipedia.org/wiki/2025_Dutch_TT#:~:text=El%20TT%20de%20los%20Pa%C3%ADses,29%20de%20junio%20de%202025." target="_blank">
+                                    <span class="race-name">TT de Países Bajos</span>
+                                    <span class="location">Assen</span>
+                                    <span class="date">27-29 Junio</span>
+                                </a>
+                            </td>
+                        <tr>
+                            <td class="round">R11</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/cz.svg" alt="Czech Republic Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_la_Rep%C3%BAblica_Checa_de_Motociclismo" target="_blank">
+<span class="race-name">GP de la República Checa</span>
+                                    <span class="location">Brno</span>
+                                    <span class="date">25-27 Julio</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R12</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/at.svg" alt="Austria Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.formula1.com/en/information/austria-red-bull-ring-spielberg.1s7EC2bGta7o1thZkVPbbq" target="_blank">
+                                    <span class="race-name">GP de Austria</span>
+                                    <span class="location">Red Bull Ring</span>
+                                    <span class="date">8-10 Agosto</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R13</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="UK Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_Gran_Breta%C3%B1a" target="_blank">
+                                    <span class="race-name">GP de Gran Bretaña</span>
+                                    <span class="location">Silverstone</span>
+                                    <span class="date">22-24 Agosto</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R14</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/sm.svg" alt="San Marino Flag"></td>
+                            <td class="race-info">
+                                <a href="https://en.wikipedia.org/wiki/San_Marino_and_Rimini_Riviera_motorcycle_Grand_Prix#:~:text=Gran%20Premio%20de%20motociclismo%20de%20San%20Marino%20y%20Riviera%20de%20R%C3%ADmini&text=El%20Gran%20Premio%20de%20Motociclismo,Simoncelli%20al%20menos%20hasta%202026." target="_blank">
+                                    <span class="race-name">GP de San Marino y la Riviera de Rímini</span>
+                                    <span class="location">Misano</span>
+                                    <span class="date">5-7 Septiembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R15</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/in.svg" alt="India Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_la_India target="_blank">
+                                    <span class="race-name">GP de la India</span>
+                                    <span class="location">Buddh International Circuit</span>
+                                    <span class="date">19-21 Septiembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R16</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/id.svg" alt="Indonesia Flag"></td>
+                            <td class="race-info">
+                                <a href="https://motogppremier.motogp.com/es/2025-motogp-indonesia" target="_blank">
+                                    <span class="race-name">GP de Indonesia</span>
+                                    <span class="location">Mandalika</span>
+                                    <span class="date">26-28 Septiembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R17</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" alt="Japan Flag"></td>
+                            <td class="race-info">
+                                <a href="https://www.dazn.com/es-ES/news/motor/gp-japon-motegi-fecha-hora-canal-tv-donde-ver-online-gran-premio-mundial-motogp/10dtcx8qgks6j1vdc57ohinmwz" target="_blank">
+                                    <span class="race-name">GP de Japón</span>
+                                    <span class="location">Motegi</span>
+                                    <span class="date">3-5 Octubre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R18</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/au.svg" alt="Australia Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Anexo:Gran_Premio_de_Australia_de_2025" target="_blank">
+                                    <span class="race-name">GP de Australia</span>
+                                    <span class="location">Phillip Island</span>
+                                    <span class="date">17-19 Octubre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R19</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/th.svg" alt="Thailand Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_Tailandia_de_Motociclismo_de_2025" target="_blank">
+                                    <span class="race-name">GP de Tailandia</span>
+                                    <span class="location">Buriram</span>
+                                    <span class="date">24-26 Octubre</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R20</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/my.svg" alt="Malaysia Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_Malasia" target="_blank">
+                                    <span class="race-name">GP de Malasia</span>
+                                    <span class="location">Sepang</span>
+                                    <span class="date">31 Oct - 2 Nov</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="round">R21</td>
+                            <td class="flag-column"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spain Flag"></td>
+                            <td class="race-info">
+                                <a href="https://es.wikipedia.org/wiki/Gran_Premio_de_la_Comunidad_Valenciana" target="_blank">
+                                    <span class="race-name">GP de Valencia</span>
+                                    <span class="location">Ricardo Tormo</span>
+                                    <span class="date">14-16 Noviembre</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+    </main>
+
+<footer class="footer">
+        <section class="footer-container">
+            <section class="footer-content">
+                <article class="footer-section">
+                    <h3>Carreras Sport</h3>
+                    <p>Tu fuente confiable para todo lo relacionado con Fórmula 1 y MotoGP. <br> Noticias, análisis y entretenimiento de primer nivel.</p>
+                    <article class="social-links">
+                        <a href="https://www.facebook.com/?locale=es_LA" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/?lang=es" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/?app=desktop&hl=es" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </article>
+                </article>
+
+                <article class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./noticias.html">Noticias</a></li>
+                        <li><a href="./calendario.html">Calendario</a></li>
+                        <li><a href="./apuestas.html">Apuestas</a></li>
+                        <li><a href="./tienda.html">Tienda</a></li>
+                        <li><a href="./cuenta.html">Mi cuenta</a></li>
+                    </ul>
+                </article>
+
+                <article class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="./cuenta.html">Contenido exclusivo</a></li>
+                        <li><a href="./apuestas.html">Sistema de Apuestas</a></li>
+                        <li><a href="./tienda.html">Tienda Oficial</a></li>
+                    </ul>
+                </article>
+
+                 <article class="footer-section">
+          <h3>Soporte</h3>
+          <ul>
+            <li><a href="Centro-de-Ayuda.html">Centro de Ayuda</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="TerminosyCondiciones.html">Términos y Condiciones</a></li>
+            <li><a href="Politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="Cookies.html">Cookies</a></li>
+          </ul>
+        </article>
+            </section>
+
+            <section class="footer-bottom">
+                <p>© 2025 Carreras Sport. Todos los derechos reservados. | Proyecto Universitario</p>
+            </section>
+        </section>
+    </footer>
+    <script src="js/main.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const raceLinks = document.querySelectorAll('.race-info a');
+            const calendarTablesWrapper = document.querySelector('.calendar-tables-wrapper'); 
+
+            let activeTimeout; 
+
+            raceLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+
+                    if (activeTimeout) {
+                        clearTimeout(activeTimeout);
+                    }
+
+                    raceLinks.forEach(otherLink => {
+                        otherLink.classList.remove('active');
+                    });
+
+                    this.classList.add('active');
+
+                    calendarTablesWrapper.classList.add('race-selected');
+
+                    activeTimeout = setTimeout(() => {
+                        this.classList.remove('active');
+                        calendarTablesWrapper.classList.remove('race-selected'); 
+                    }, 500); 
+                });
+            });
+            window.toggleMobileMenu = function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('active');
+            };
+        });
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filtro = document.getElementById("mes");
+  const secciones = document.querySelectorAll(".calendar-group");
+
+  secciones.forEach(section => {
+    // Crear mensaje de "no hay carreras"
+    const mensaje = document.createElement("p");
+    mensaje.textContent = "No se encuentran carreras disponibles";
+    mensaje.classList.add("no-carreras");
+    mensaje.style.display = "none";
+    mensaje.style.textAlign = "center";
+    mensaje.style.color = "#ccc";
+    mensaje.style.padding = "10px";
+    section.appendChild(mensaje);
+  });
+
+  filtro.addEventListener("change", () => {
+    const mesSeleccionado = filtro.value;
+    secciones.forEach(section => {
+      const filas = section.querySelectorAll("tbody tr");
+      let visibleCount = 0;
+
+      filas.forEach(fila => {
+        const fecha = fila.querySelector(".date").textContent.toLowerCase();
+
+        if (mesSeleccionado === "todos" || fecha.includes(mesSeleccionado)) {
+          fila.style.display = "";
+          visibleCount++;
+        } else {
+          fila.style.display = "none";
+        }
+      });
+
+      // Mostrar mensaje si no hay filas visibles
+      const mensaje = section.querySelector(".no-carreras");
+      if (visibleCount === 0) {
+        mensaje.style.display = "block";
+      } else {
+        mensaje.style.display = "none";
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
+
